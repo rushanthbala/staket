@@ -177,7 +177,7 @@ export default function PreviousCultivationTable() {
 
           <Button
             variant="contained"
-            sx={{ height: "52px !important", borderRadius: "16px" }}
+            sx={{ height: "52px !important", borderRadius: "16px" ,backgroundColor: "#3A36DB" }}
             startIcon={<AddIcon />}
             onClick={handleClickOpen}
           >

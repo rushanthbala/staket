@@ -9,10 +9,11 @@ import Paper from "@mui/material/Paper";
 import { makeStyles } from "@mui/styles";
 import { createStyles } from "@material-ui/core";
 import { Box } from "@material-ui/core";
-import DeleteIcon from "@mui/icons-material/Delete";
 import Button from "@mui/material/Button";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Chips from "../../core/chip";
+import { ReactComponent as Icon } from "../../../assect/svg/ICON.svg";
+
 const useStyles = makeStyles(() =>
   createStyles({
     CurrentHead: {
@@ -138,7 +139,11 @@ export default function CurrentTable() {
           </p>
         </Box>
         <div>
-          <Button variant="contained" startIcon={<DeleteIcon />}>
+          <Button
+            variant="contained"
+            startIcon={<Icon style={{ fill: "#ffff" }} />}
+            sx={{ backgroundColor: "#3A36DB",marginRight:'1rem' }}
+          >
             Generate Report
           </Button>
           <MoreHorizIcon />
