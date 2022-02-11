@@ -7,17 +7,18 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import Logo from "../assect/logo.jpg";
+import Logo from "../assect/images/logo.png";
 import { makeStyles } from "@mui/styles";
 import { createStyles } from "@material-ui/core";
 import CultivationTracking from "../components/layout/cultivationTracking/index";
-
+import {ReactComponent as  Dashboard} from "../assect/svg/dashboard.svg";
 const drawerWidth = 240;
 const useStyles = makeStyles(() =>
   createStyles({
     logo: {
-      backgroundColor: "red",
       width: "200px",
+      padding: '10px',
+      marginTop:'20px'
     },
     ListItemIcon: {
       minWidth: "38px !important",
@@ -53,11 +54,11 @@ const useStyles = makeStyles(() =>
       backgroundColor: "#F4F4F4 !important",
     },
     main: {
-      height: "100vh",
+      height: "auto",
       borderRadius: "40px",
       marginTop: "10px",
       marginRight: "10px",
-      padding: "10px 0px 0px 20px !important",
+      padding: "10px 10px 0px 20px !important",
     },
   })
 );
@@ -67,7 +68,7 @@ export default function Home() {
     {
       title: "Dashboard",
       href: "/",
-      icon: InboxIcon,
+      icon: Dashboard,
     },
     {
       title: "Product",
@@ -133,6 +134,7 @@ export default function Home() {
             >
               <ListItemIcon className={classes.ListItemIcon}>
                 <text.icon />
+                <Dashboard/>
               </ListItemIcon>
               <ListItemText primary={text.title} />
             </ListItem>
