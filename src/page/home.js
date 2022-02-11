@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
@@ -11,6 +10,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import Logo from "../assect/logo.jpg";
 import { makeStyles } from "@mui/styles";
 import { createStyles } from "@material-ui/core";
+import CultivationTracking from "../components/layout/cultivationTracking/index";
 
 const drawerWidth = 240;
 const useStyles = makeStyles(() =>
@@ -44,7 +44,8 @@ const useStyles = makeStyles(() =>
     },
     Notification: {
       color: "#809FB8 !important",
-      paddingLeft: "50px !important",
+      paddingLeft: "26px !important",
+      fontSize: "12px !important",
     },
     paper: {
       border: "none",
@@ -56,6 +57,7 @@ const useStyles = makeStyles(() =>
       borderRadius: "40px",
       marginTop: "10px",
       marginRight: "10px",
+      padding: "10px 0px 0px 20px !important",
     },
   })
 );
@@ -156,22 +158,7 @@ export default function Home() {
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
         className={classes.main}
       >
-        <Toolbar />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
+        <CultivationTracking />
       </Box>
     </Box>
   );
