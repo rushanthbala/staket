@@ -131,7 +131,7 @@ const rows = [
     "42kg",
     " Erika D.",
     "004100",
-    "DRYINGDRYING"
+    "DRYING"
   ),
 ];
 const Transition = React.forwardRef(function Transition(props, ref) {

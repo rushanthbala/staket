@@ -118,7 +118,7 @@ const rows = [
     "42kg",
     " Erika D.",
     "004100",
-    "DRYINGDRYING"
+    "DRYING"
   ),
 ];
 
@@ -133,10 +133,6 @@ export default function CurrentTable() {
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box sx={{ display: "flex" }}>
           <p className={classes.CurrentHead}>Current Cultivation</p>
-          <p className={classes.CurrentRed}>
-            Add another column for ‘Next Gate’ which; If in Flower when does it
-            go to Harvest
-          </p>
         </Box>
         <div>
           <Button
