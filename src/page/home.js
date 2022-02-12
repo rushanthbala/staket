@@ -38,6 +38,7 @@ const useStyles = makeStyles(() =>
       borderRadious: "10px !important",
       "&:hover": {
         backgroundColor: "#3B9161",
+        cursor:'pointer',
         borderRadius: "10px",
         color: "#fff",
         "& $svg": {
