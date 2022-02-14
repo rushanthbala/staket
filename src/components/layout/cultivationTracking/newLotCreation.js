@@ -13,11 +13,13 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { MenuItem, FormControl, Select } from "@mui/material";
-
+import CloseIcon from "@mui/icons-material/Close";
+import InputFeild from "../../core/inputFeild";
+import Selects from "../../core/select";
 const useStyles = makeStyles(() =>
   createStyles({
     Dialog: {
-      padding: "3rem",
+      // padding: "3rem",
     },
     ColDiv: {
       border: "2px solid #d9e1e7",
@@ -47,7 +49,7 @@ const useStyles = makeStyles(() =>
     },
     DialogContent: {
       padding: "3rem",
-      margin: "5rem",
+      margin: "0rem 5rem",
     },
     TableCol: {
       display: "flex",
@@ -72,10 +74,32 @@ const useStyles = makeStyles(() =>
       marginTop: "10px",
       COLOR: "#1AD598",
     },
+
+    Close: {
+      // margin: "10px",
+      width: "96px",
+      height: "94px",
+      // border: "3px solid red",
+      borderRadius: "100%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      margin: "12px",
+      background: "#ffffff",
+      cursor: "pointer",
+    },
+    CloseDiv: {
+      display: "flex",
+      justifyContent: "flex-end",
+    },
+    Select: {
+      borderRadius: "8px !important",
+    },
   })
 );
 
 export default function NewLotCreation(props) {
+  const { handleClose } = props;
   const classes = useStyles();
   const [year, setYear] = React.useState("");
   const handleChange = (event) => {
@@ -83,6 +107,12 @@ export default function NewLotCreation(props) {
   };
   return (
     <div className={classes.Dialog}>
+      {/* <p style={{ marginTop: '-120px' }}>dsfd</p> */}
+      <div className={classes.CloseDiv}>
+        <div className={classes.Close} onClick={handleClose}>
+          <CloseIcon />
+        </div>
+      </div>
       <DialogTitle>{"New Lot Creation"}</DialogTitle>
       <DialogContent className={classes.DialogContent}>
         <DialogContentText id="alert-dialog-slide-description">
@@ -131,97 +161,52 @@ export default function NewLotCreation(props) {
               <div className={classes.TableCol}>
                 <div>
                   <div>
-                    <div className={classes.Para}> Lot ID</div>
-                    <FormControl
+                    <InputFeild
                       sx={{
                         m: 1,
-                        minWidth: 120,
+                        minWidth: 12,
                         minHeight: 68,
                         margin: 0,
                       }}
-                    >
-                      <Select
-                        value={year}
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        classes={{
-                          select: classes.Select,
-                          iconOutlined: classes.iconOutlined,
-                        }}
-                      >
-                        <MenuItem value="">
-                          <span style={{ color: "#B88080" }}>Numeric</span>
-                        </MenuItem>
-                        <MenuItem value={2020}>2020</MenuItem>
-                        <MenuItem value={2019}>2019</MenuItem>
-                      </Select>
-                    </FormControl>
+                      defaultValue=""
+                      id="001"
+                      label="Lot ID"
+                      placeHolder="Numric"
+                    />
                   </div>
                   <div>
-                    <div className={classes.Para}> Batch ID</div>
-                    <FormControl
+                    <InputFeild
                       sx={{
                         m: 1,
-                        minWidth: 120,
+                        minWidth: 12,
                         minHeight: 68,
                         margin: 0,
                       }}
-                    >
-                      <Select
-                        value={year}
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        classes={{
-                          select: classes.Select,
-                          iconOutlined: classes.iconOutlined,
-                        }}
-                      >
-                        <MenuItem value="">
-                          <span style={{ color: "#B88080" }}>
-                            Alpha Numaric
-                          </span>
-                        </MenuItem>
-                        <MenuItem value={2020}>2020</MenuItem>
-                        <MenuItem value={2019}>2019</MenuItem>
-                      </Select>
-                    </FormControl>
+                      defaultValue=""
+                      id="001"
+                      label="Batch ID"
+                      placeHolder="Alpha Numeric"
+                    />
                   </div>
                   <div>
-                    <div className={classes.Para}> Grower</div>
-                    <FormControl
+                    <InputFeild
                       sx={{
                         m: 1,
-                        minWidth: 120,
+                        minWidth: 12,
                         minHeight: 68,
                         margin: 0,
                       }}
-                    >
-                      <Select
-                        value={year}
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        classes={{
-                          select: classes.Select,
-                          iconOutlined: classes.iconOutlined,
-                        }}
-                      >
-                        <MenuItem value="">
-                          <span style={{ color: "#B88080" }}>
-                            String Content
-                          </span>
-                        </MenuItem>
-                        <MenuItem value={2020}>2020</MenuItem>
-                        <MenuItem value={2019}>2019</MenuItem>
-                      </Select>
-                    </FormControl>
+                      defaultValue=""
+                      id="001"
+                      label="Grower"
+                      placeHolder="String Content"
+                    />
                   </div>
                 </div>
                 <div>
                   <div>
-                    <div className={classes.Para}> Type</div>
+                    <Selects label="Type" item="item89" />
+                    {/* <div className={classes.Para}> Type</div>
                     <FormControl
                       sx={{
                         m: 1,
@@ -246,68 +231,35 @@ export default function NewLotCreation(props) {
                         <MenuItem value={2020}>2020</MenuItem>
                         <MenuItem value={2019}>2019</MenuItem>
                       </Select>
-                    </FormControl>
+                    </FormControl> */}
                   </div>
                   <div>
-                    <div className={classes.Para}> Seed</div>
-                    <FormControl
+                    <InputFeild
                       sx={{
                         m: 1,
-                        minWidth: 120,
+                        minWidth: 12,
                         minHeight: 68,
                         margin: 0,
                       }}
-                    >
-                      <Select
-                        value={year}
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        classes={{
-                          select: classes.Select,
-                          iconOutlined: classes.iconOutlined,
-                        }}
-                      >
-                        <MenuItem value="">
-                          <span style={{ color: "#B88080" }}>
-                            {" "}
-                            String Content
-                          </span>
-                        </MenuItem>
-                        <MenuItem value={2020}>2020</MenuItem>
-                        <MenuItem value={2019}>2019</MenuItem>
-                      </Select>
-                    </FormControl>
+                      defaultValue=""
+                      id="001"
+                      label="Seed"
+                      placeHolder="String Content"
+                    />
                   </div>
                   <div>
-                    <div className={classes.Para}>Strain</div>
-                    <FormControl
+                    <InputFeild
                       sx={{
                         m: 1,
-                        minWidth: 120,
+                        minWidth: 12,
                         minHeight: 68,
                         margin: 0,
                       }}
-                    >
-                      <Select
-                        value={year}
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        classes={{
-                          select: classes.Select,
-                          iconOutlined: classes.iconOutlined,
-                        }}
-                      >
-                        <MenuItem value="">
-                          <span style={{ color: "#B88080" }}>
-                            String content
-                          </span>
-                        </MenuItem>
-                        <MenuItem value={2020}>2020</MenuItem>
-                        <MenuItem value={2019}>2019</MenuItem>
-                      </Select>
-                    </FormControl>
+                      defaultValue=""
+                      id="001"
+                      label="Strain"
+                      placeHolder="String Content"
+                    />
                   </div>
                 </div>
                 <div>
@@ -340,61 +292,34 @@ export default function NewLotCreation(props) {
                     </FormControl>
                   </div>
                   <div>
-                    <div className={classes.Para}>Organic Nutrition</div>
-                    <FormControl
+                    <div className={classes.Para}></div>
+                    <InputFeild
                       sx={{
                         m: 1,
-                        minWidth: 120,
+                        minWidth: 12,
                         minHeight: 68,
                         margin: 0,
                       }}
-                    >
-                      <Select
-                        value={year}
-                        onChange={handleChange}
-                        displayEmpty
-                        inputProps={{ "aria-label": "Without label" }}
-                        classes={{
-                          select: classes.Select,
-                          iconOutlined: classes.iconOutlined,
-                        }}
-                      >
-                        <MenuItem value="">
-                          <span style={{ color: "#B88080" }}> worm casing</span>
-                        </MenuItem>
-                        <MenuItem value={2020}>2020</MenuItem>
-                        <MenuItem value={2019}>2019</MenuItem>
-                      </Select>
-                    </FormControl>
+                      defaultValue=""
+                      id="001"
+                      label="Organic Nutrition"
+                      placeHolder="Warm Cashing"
+                    />
                   </div>
                   <div>
-                    <div className={classes.Para}> Empected Yield</div>
                     <Box sx={{ display: "flex" }}>
-                      <FormControl
+                      <InputFeild
                         sx={{
                           m: 1,
-                          minWidth: "45%",
+                          minWidth: 12,
                           minHeight: 68,
                           margin: 0,
                         }}
-                      >
-                        <Select
-                          value={year}
-                          onChange={handleChange}
-                          displayEmpty
-                          inputProps={{ "aria-label": "Without label" }}
-                          classes={{
-                            select: classes.Select,
-                            iconOutlined: classes.iconOutlined,
-                          }}
-                        >
-                          <MenuItem value="">
-                            <span style={{ color: "#B88080" }}>String</span>
-                          </MenuItem>
-                          <MenuItem value={2020}>2020</MenuItem>
-                          <MenuItem value={2019}>2019</MenuItem>
-                        </Select>
-                      </FormControl>
+                        defaultValue=""
+                        id="001"
+                        label="Empected Yield"
+                        placeHolder="Warm Cashing"
+                      />
                       <FormControl
                         sx={{
                           m: 1,

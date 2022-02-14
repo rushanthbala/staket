@@ -54,13 +54,12 @@ const useStyles = makeStyles(() =>
     DialogRoot: {
       maxWidth: "1500px !important",
       margin: "0 auto !important",
-      // background:'#7f7f7f !important'
+      // marginTop:'5rem !important',
+      // background:'#7f7f7f !important',
+      // height: '70%',
+      boxShadow: 'none !important',
+      border:'none !important'
     },
-    Close: {
-      display: 'flex',
-      justifyContent: 'flex-end',
-      padding: '10px',
-  }
   })
 );
 function createData(
@@ -175,11 +174,12 @@ export default function PreviousCultivationTable() {
             fullScreen
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
-            sx={{ maxWidth: "1500px" }}
+            sx={{ maxWidth: "1500px",boxShadow:'none !important' }}
             classes={{ root: classes.DialogRoot }}
           >
-            <div className={classes.Close} >hello</div>
-            <NewLotCreation />
+            
+
+            <NewLotCreation handleClose={handleClose}/>
           </Dialog>
 
           <Button
