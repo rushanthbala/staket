@@ -32,10 +32,12 @@ const useStyles = makeStyles(() =>
     Para: {
       color: "#809FB8",
       letterSpacing: "0.26px",
-      textAlign: "center",
+      textAlign: "left",
     },
     LotStart: {
       display: "flex",
+      justifyContent: "space-between",
+      marginBottom: "4rem",
     },
     MainDiv: {
       // display: "flex",
@@ -45,6 +47,7 @@ const useStyles = makeStyles(() =>
     },
     DialogContent: {
       padding: "3rem",
+      margin: "5rem",
     },
     TableCol: {
       display: "flex",
@@ -63,9 +66,11 @@ const useStyles = makeStyles(() =>
       height: "28px",
       background: "#C7D51A66 0% 0% no-repeat padding-box",
       borderRadius: "16px",
-      // display: "flex",
+      display: "flex",
+      justifyContent: "center",
       alignItems: "center",
       marginTop: "10px",
+      COLOR: "#1AD598",
     },
   })
 );
@@ -81,38 +86,39 @@ export default function NewLotCreation(props) {
       <DialogTitle>{"New Lot Creation"}</DialogTitle>
       <DialogContent className={classes.DialogContent}>
         <DialogContentText id="alert-dialog-slide-description">
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div className={classes.LotStart}>
-              <div className={classes.MainDiv}>
-                <div className={classes.Para}>Lot Id</div>
-                <div className={classes.ColDiv}>#131942</div>
-              </div>
-              <div className={classes.MainDiv}>
-                <div className={classes.Para}>Strain</div>
-                <div className={classes.ColDiv}>Pink Kush</div>
-              </div>
-              <div className={classes.MainDiv}>
-                <div className={classes.Para}>Exit Date</div>
-                <div className={classes.ColDiv}>01/10/2022</div>
-              </div>
-              <div className={classes.MainDiv}>
-                <div className={classes.Para}>Expected Weight</div>
-                <div className={classes.ColDiv}>55kg</div>
-              </div>
-              <div className={classes.MainDiv}>
-                <div className={classes.Para}>Grower</div>
-                <div className={classes.ColDiv}>Heather K</div>
-              </div>
-              <div className={classes.MainDiv}>
-                <div className={classes.Para}>Batch Number</div>
-                <div className={classes.ColDiv}>#131942</div>
-              </div>
+          {/* <p style={{ display: "flex", justifyContent: "space-between" }}> */}
+          <div className={classes.LotStart}>
+            <div className={classes.MainDiv}>
+              <div className={classes.Para}>Lot Id</div>
+              <div className={classes.ColDiv}>#131942</div>
+            </div>
+            <div className={classes.MainDiv}>
+              <div className={classes.Para}>Strain</div>
+              <div className={classes.ColDiv}>Pink Kush</div>
+            </div>
+            <div className={classes.MainDiv}>
+              <div className={classes.Para}>Exit Date</div>
+              <div className={classes.ColDiv}>01/10/2022</div>
+            </div>
+            <div className={classes.MainDiv}>
+              <div className={classes.Para}>Expected Weight</div>
+              <div className={classes.ColDiv}>55kg</div>
+            </div>
+            <div className={classes.MainDiv}>
+              <div className={classes.Para}>Grower</div>
+              <div className={classes.ColDiv}>Heather K</div>
+            </div>
+            <div className={classes.MainDiv}>
+              <div className={classes.Para}>Batch Number</div>
+              <div className={classes.ColDiv}>#131942</div>
             </div>
             <div className={classes.MainDiv}>
               <div className={classes.Status}>Status</div>
-              <div className={classes.StatusDiv}>#131942</div>
+              <div className={classes.StatusDiv}>SOLD</div>
             </div>
           </div>
+
+          {/* </p> */}
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}

@@ -54,7 +54,13 @@ const useStyles = makeStyles(() =>
     DialogRoot: {
       maxWidth: "1500px !important",
       margin: "0 auto !important",
+      // background:'#7f7f7f !important'
     },
+    Close: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      padding: '10px',
+  }
   })
 );
 function createData(
@@ -169,15 +175,20 @@ export default function PreviousCultivationTable() {
             fullScreen
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
-            sx={{ maxWidth: "1600px" }}
+            sx={{ maxWidth: "1500px" }}
             classes={{ root: classes.DialogRoot }}
           >
+            <div className={classes.Close} >hello</div>
             <NewLotCreation />
           </Dialog>
 
           <Button
             variant="contained"
-            sx={{ height: "52px !important", borderRadius: "16px" ,backgroundColor: "#3A36DB" }}
+            sx={{
+              height: "52px !important",
+              borderRadius: "16px",
+              backgroundColor: "#3A36DB",
+            }}
             startIcon={<AddIcon />}
             onClick={handleClickOpen}
           >
@@ -224,13 +235,13 @@ export default function PreviousCultivationTable() {
         <TableHead>
           <TableRow classes={{ root: classes.HeadRowRoot }}>
             <TableCell>Lot No.</TableCell>
-            <TableCell align="center">Strain Name</TableCell>
-            <TableCell align="center">Exit Date</TableCell>
-            <TableCell align="center">Amount</TableCell>
-            <TableCell align="center">Grower</TableCell>
-            <TableCell align="center">Batch ID</TableCell>
-            <TableCell align="center">Status</TableCell>
-            <TableCell align="center">Options</TableCell>
+            <TableCell>Strain Name</TableCell>
+            <TableCell>Exit Date</TableCell>
+            <TableCell>Amount</TableCell>
+            <TableCell>Grower</TableCell>
+            <TableCell>Batch ID</TableCell>
+            <TableCell>Status</TableCell>
+            <TableCell>Options</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -243,21 +254,24 @@ export default function PreviousCultivationTable() {
               <TableCell component="th" scope="row">
                 {row.lotNo}
               </TableCell>
-              <TableCell align="left">{row.StrainName}</TableCell>
-              <TableCell align="center">{row.exitDate}</TableCell>
-              <TableCell align="center">{row.Amount}</TableCell>
-              <TableCell align="center">{row.Grower}</TableCell>
-              <TableCell align="center">{row.BatchId}</TableCell>
-              <TableCell align="center">
+              <TableCell>{row.StrainName}</TableCell>
+              <TableCell>{row.exitDate}</TableCell>
+              <TableCell>{row.Amount}</TableCell>
+              <TableCell>{row.Grower}</TableCell>
+              <TableCell>{row.BatchId}</TableCell>
+              <TableCell>
                 <Chips data={row.Status} />
               </TableCell>
-              <TableCell align="center">
+              <TableCell>
                 <Button
                   variant="outlined"
                   sx={{
                     color: "#D9E1E7",
                     border: "2px solid #D9E1E7",
                     borderRadius: "10px",
+                    ":hover": {
+                      border: "2px solid #D9E1E7",
+                    },
                   }}
                 >
                   Details

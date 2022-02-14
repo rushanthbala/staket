@@ -6,8 +6,12 @@ const useStyles = makeStyles((prop) =>
     Chip: {
       color: "#1AD598 !important",
       backgroundColor: "#1AD59866 !important",
-      width: "70px",
-      borderRadius: "12px",
+      borderRadius: "10px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "94px",
+      height: "28px",
     },
   })
 );
