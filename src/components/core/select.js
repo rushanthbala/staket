@@ -4,6 +4,8 @@ import {
   createStyles,
 } from "@material-ui/core";
 import { MenuItem, FormControl, Select } from "@mui/material";
+import OutlinedInput from "@material-ui/core/OutlinedInput";
+
 const useStyles = makeStyles(() =>
   createStyles({
     Para: {
@@ -12,8 +14,17 @@ const useStyles = makeStyles(() =>
       textAlign: "left",
     },
     Select: {
-      borderRadius: "8px !important",
     },
+    root: {
+      width: "160px",
+      borderRadius: "8px !important",
+      color:'#809FB8',
+      height:'32px',
+    },
+    input: {
+      padding: "5px 14px",
+      color:'#809FB8'
+    }
   })
 );
 export default function Selects(props) {
@@ -30,7 +41,7 @@ export default function Selects(props) {
         sx={{
           m: 1,
           minWidth: 120,
-          minHeight: 68,
+          minHeight: 60,
           margin: 0,
         }}
       >
@@ -43,6 +54,9 @@ export default function Selects(props) {
             select: classes.Select,
             iconOutlined: classes.iconOutlined,
           }}
+          
+          className={classes.root}
+          input={<OutlinedInput classes={{ input: classes.input }} />}
         >
           <MenuItem value="">
             <span style={{ color: "#809FB8" }}>{item}</span>

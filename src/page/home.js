@@ -19,6 +19,8 @@ import { ReactComponent as Products } from "../assect/svg/products.svg";
 import { ReactComponent as Profile } from "../assect/svg/profile.svg";
 import { ReactComponent as Settings } from "../assect/svg/settings.svg";
 import { ReactComponent as Traffic } from "../assect/svg/traffic icon.svg";
+import { useLocation } from "react-router-dom";
+
 const drawerWidth = 240;
 const useStyles = makeStyles(() =>
   createStyles({
@@ -38,13 +40,24 @@ const useStyles = makeStyles(() =>
       borderRadious: "10px !important",
       "&:hover": {
         backgroundColor: "#3B9161",
-        cursor:'pointer',
+        opacity:'0.8',
+        cursor: "pointer",
         borderRadius: "10px",
         color: "#fff",
         "& $svg": {
           color: "#FFF !important",
           fill: "#FFF !important",
         },
+      },
+    },
+    ActiveLink: {
+      backgroundColor: "#3B9161 !important ",
+      cursor: "pointer",
+      borderRadius: "10px",
+      color: "#fff",
+      "& $svg": {
+        color: "#FFF !important",
+        fill: "#FFF !important",
       },
     },
     list: {
@@ -80,26 +93,28 @@ const useStyles = makeStyles(() =>
   })
 );
 export default function Home() {
+  const location = useLocation();
+  console.log(location.pathname);
   const classes = useStyles();
   const navLists = [
     {
       title: "Dashboard",
-      href: "/",
+      href: "/dashboard",
       icon: Dashboard,
     },
     {
       title: "Product",
-      href: "/",
+      href: "/product",
       icon: Analytics,
     },
     {
       title: "Products",
-      href: "/",
+      href: "/products",
       icon: Products,
     },
     {
       title: "Customer",
-      href: "/",
+      href: "/customer",
       icon: Customers,
     },
     {
@@ -111,17 +126,17 @@ export default function Home() {
   const navLists2 = [
     {
       title: "Profile",
-      href: "/",
+      href: "/Profile",
       icon: Profile,
     },
     {
       title: "inbox",
-      href: "/",
+      href: "/inbox",
       icon: Message,
     },
     {
       title: "Setting",
-      href: "/",
+      href: "/setting",
       icon: Settings,
     },
   ];
@@ -157,27 +172,39 @@ export default function Home() {
             <div>
               <img className={classes.logo} src={Logo} alt="staket" />
             </div>
-            <List classes={{ root: classes.list }}>
-              {navLists.map((text, index) => (
+            {navLists.map((text, index) => (
+              <List
+                classes={{ root: classes.list }}
+                key={index}
+                className={true && "ActiveLink"}
+              >
                 <ListItem
                   key={text}
-                  classes={{ root: classes.root, selected: classes.selected }}
+                  classes={
+                    location.pathname !== text.href
+                      ? { root: classes.root, selected: classes.selected }
+                      : { root: classes.ActiveLink, selected: classes.selected }
+                  }
                 >
                   <ListItemIcon className={classes.ListItemIcon}>
                     <text.icon style={{ color: "red" }} />
                   </ListItemIcon>
                   <ListItemText primary={text.title} />
                 </ListItem>
-              ))}
-            </List>
+              </List>
+            ))}
             <Typography className={classes.Notification}>
-              NOTIFICATION{" "}
+              NOTIFICATION
             </Typography>
-            <List classes={{ root: classes.list }}>
+            <div classes={{ root: classes.list }}>
               {navLists2.map((text, index) => (
                 <ListItem
                   key={text}
-                  classes={{ root: classes.root, selected: classes.selected }}
+                  classes={
+                    location.pathname !== text.href
+                      ? { root: classes.root, selected: classes.selected }
+                      : { root: classes.ActiveLink, selected: classes.selected }
+                  }
                 >
                   <ListItemIcon className={classes.ListItemIcon}>
                     <text.icon />
@@ -186,12 +213,14 @@ export default function Home() {
                   <ListItemText primary={text.title} />
                 </ListItem>
               ))}
-            </List>
+            </div>
           </div>
           <Toolbar />
           <Box sx={{ m: 1, padding: "10px" }}>
             <div className={classes.CopyRight}> © 2021 STAKET</div>
-            <div className={classes.CopyRightPara}>Driving data transparency for Industries in need</div>
+            <div className={classes.CopyRightPara}>
+              Driving data transparency for Industries in need
+            </div>
           </Box>
         </Box>
       </Drawer>
