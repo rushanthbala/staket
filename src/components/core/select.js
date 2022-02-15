@@ -35,7 +35,7 @@ export default function Selects(props) {
     setYear(event.target.value);
   };
   return (
-    <div>
+    <div style={{height: 72}} >
       <div className={classes.Para}>{label}</div>
       <FormControl
         sx={{

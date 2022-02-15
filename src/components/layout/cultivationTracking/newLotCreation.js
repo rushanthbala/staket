@@ -16,7 +16,7 @@ import { FormControl } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import InputFeild from "../../core/inputFeild";
 import Selects from "../../core/select";
-// import CustomCalendarDate from "../../core/datePicker";
+import CustomCalendarDate from "../../core/datePicker";
 const useStyles = makeStyles(() =>
   createStyles({
     Dialog: {
@@ -109,7 +109,7 @@ const useStyles = makeStyles(() =>
       height: "32px",
       background: "#55815C 0% 0% no-repeat padding-box",
       borderRadius: "8px",
-      cursor:'pointer'
+      cursor: "pointer",
     },
   })
 );
@@ -291,7 +291,7 @@ export default function NewLotCreation(props) {
                           justyContent: "center",
                         }}
                       >
-                        <div style={{ marginTop: "34px" }}>
+                        <div style={{ marginTop: "22px" }}>
                           <Selects item="Mes" label="" />
                         </div>
                       </FormControl>
@@ -300,25 +300,24 @@ export default function NewLotCreation(props) {
                 </div>
                 <div>
                   <div>
-                    {/* <CustomCalendarDate/> */}
-                    <Selects label="veg Data" item="Date" />
+                    <CustomCalendarDate label="Veg Date" />
                   </div>
                   <div>
-                    <Selects label="Flower Data" item="Date" />
+                    <CustomCalendarDate label="Veg Date" />
                   </div>
                   <div>
-                    <Selects label="Harvest Date" item="Date" />
+                    <CustomCalendarDate label="Veg Date" />
                   </div>
                 </div>
                 <div>
                   <div>
-                    <Selects label="Flower Data" item="Date" />
+                    <CustomCalendarDate label="Shipping" />
                   </div>
                   <div>
-                    <Selects label="Package" item="Date" />
+                    <CustomCalendarDate label="Package" />
                   </div>
                   <div>
-                    <Selects label="Shipping" item="Date" />
+                    <CustomCalendarDate label="Shipping" />
                   </div>
                 </div>
               </div>
