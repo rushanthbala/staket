@@ -7,8 +7,6 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 import CloseIcon from "@mui/icons-material/Close";
-import Week1 from "./newLotCreation/week1";
-import Week2 from "./newLotCreation/week2";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -45,12 +43,6 @@ const useStyles = makeStyles(() =>
       padding: "3rem",
       margin: "0rem 5rem",
     },
-    TableCol: {
-      display: "flex",
-      // flexDirection: "Column",
-      margin: "0 auto",
-      justifyContent: "space-between",
-    },
     Status: {
       color: "#000000 !important",
       // padding: "20px",
@@ -86,29 +78,11 @@ const useStyles = makeStyles(() =>
       display: "flex",
       justifyContent: "flex-end",
     },
-    Select: {
-      borderRadius: "8px !important",
-    },
-    StartLotDiv: {
-      display: "flex",
-      justifyContent: "flex-end",
-      alignItems: "center",
-    },
-    StartLot: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      width: "162px",
-      height: "32px",
-      background: "#55815C 0% 0% no-repeat padding-box",
-      borderRadius: "8px",
-      cursor: "pointer",
-    },
   })
 );
 
-export default function NewLotCreation(props) {
-  const { handleClose } = props;
+export default function PreviousLotDetails(props) {
+  const { DeatilsOpenHandleClose } = props;
   const classes = useStyles();
   // const [year, setYear] = React.useState("");
   // const handleChange = (event) => {
@@ -117,7 +91,7 @@ export default function NewLotCreation(props) {
   return (
     <div className={classes.Dialog}>
       <div className={classes.CloseDiv}>
-        <div className={classes.Close} onClick={handleClose}>
+        <div className={classes.Close} onClick={DeatilsOpenHandleClose}>
           <CloseIcon />
         </div>
       </div>
@@ -154,17 +128,6 @@ export default function NewLotCreation(props) {
               <div className={classes.StatusDiv}>SOLD</div>
             </div>
           </div>
-          <Week1 />
-          <br />
-          <Week2 />
-          <br />
-          <Week2 />
-          <br />
-          <Week2 />
-          <br />
-          <Week2 />
-          <br />
-          <Week2 />
         </DialogContentText>
       </DialogContent>
     </div>

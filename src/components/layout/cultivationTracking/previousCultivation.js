@@ -16,6 +16,7 @@ import { FormControl, Select } from "@mui/material";
 import NewLotCreation from "./newLotCreation";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
+import PreviousLotDetails from "./previousLotDetails";
 const useStyles = makeStyles(() =>
   createStyles({
     CurrentHead: {
@@ -57,8 +58,8 @@ const useStyles = makeStyles(() =>
       // marginTop:'5rem !important',
       // background:'#7f7f7f !important',
       // height: '70%',
-      boxShadow: 'none !important',
-      border:'none !important'
+      boxShadow: "none !important",
+      border: "none !important",
     },
   })
 );
@@ -146,6 +147,7 @@ export default function PreviousCultivationTable() {
   const classes = useStyles();
   const [year, setYear] = React.useState("");
   const [open, setOpen] = React.useState(false);
+  const [DeatilsOpen, setDeatilsOpen] = React.useState(false);
 
   const handleChange = (event) => {
     setYear(event.target.value);
@@ -153,7 +155,12 @@ export default function PreviousCultivationTable() {
   const handleClickOpen = () => {
     setOpen(true);
   };
-
+  const DeatilsOpenHandleClose = () => {
+    setDeatilsOpen(false);
+  };
+  const DeatilsOpenHandleOpen = () => {
+    setDeatilsOpen(true);
+  };
   const handleClose = () => {
     setOpen(false);
   };
@@ -174,14 +181,26 @@ export default function PreviousCultivationTable() {
             fullScreen
             onClose={handleClose}
             aria-describedby="alert-dialog-slide-description"
-            sx={{ maxWidth: "1500px",boxShadow:'none !important' }}
+            sx={{ maxWidth: "1500px", boxShadow: "none !important" }}
             classes={{ root: classes.DialogRoot }}
           >
-            
-
-            <NewLotCreation handleClose={handleClose}/>
+            <NewLotCreation handleClose={handleClose} />
           </Dialog>
-
+          <Dialog
+            open={DeatilsOpen}
+            TransitionComponent={Transition}
+            keepMounted
+            fullScreen
+            onClose={DeatilsOpenHandleClose}
+            aria-describedby="alert-dialog-slide-description"
+            sx={{ maxWidth: "1500px", boxShadow: "none !important" }}
+            classes={{ root: classes.DialogRoot }}
+          >
+            <PreviousLotDetails
+              DeatilsOpenHandleClose={DeatilsOpenHandleClose}
+            />
+            sdsdsd
+          </Dialog>
           <Button
             variant="contained"
             sx={{
@@ -273,6 +292,7 @@ export default function PreviousCultivationTable() {
                       border: "2px solid #D9E1E7",
                     },
                   }}
+                  onClick={DeatilsOpenHandleOpen}
                 >
                   Details
                 </Button>
