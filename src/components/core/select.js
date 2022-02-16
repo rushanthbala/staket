@@ -1,8 +1,6 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
-import {
-  createStyles,
-} from "@material-ui/core";
+import { createStyles } from "@material-ui/core";
 import { MenuItem, FormControl, Select } from "@mui/material";
 import OutlinedInput from "@material-ui/core/OutlinedInput";
 
@@ -13,29 +11,41 @@ const useStyles = makeStyles(() =>
       letterSpacing: "0.26px",
       textAlign: "left",
     },
-    Select: {
-    },
+    Select: {},
     root: {
       width: "160px",
       borderRadius: "8px !important",
-      color:'#809FB8',
-      height:'32px',
+      color: "#809FB8",
+      height: "32px",
     },
     input: {
       padding: "5px 14px",
-      color:'#809FB8'
-    }
+      color: "#809FB8",
+    },
   })
 );
 export default function Selects(props) {
-  const { item, label } = props;
+  const { label, arrayOfData } = props;
   const classes = useStyles();
-  const [year, setYear] = React.useState("");
+  const [value, setValue] = React.useState("enter");
+
   const handleChange = (event) => {
-    setYear(event.target.value);
+    let selectedValue = event.target.value;
+    props.onSelectChange(selectedValue);
+    setValue(selectedValue);
   };
+
+  // let arrayOfDatas = arrayOfData;
+  // arrayOfData && console.log(arrayOfDatas, "data");
+  let Options =
+    arrayOfData &&
+    arrayOfData.map((data) => (
+      <MenuItem style={{ color: "#809FB8" }} key={data.id} value={data.id}>
+        {data.name}
+      </MenuItem>
+    ));
   return (
-    <div style={{height: 72}} >
+    <div style={{ height: 72 }}>
       <div className={classes.Para}>{label}</div>
       <FormControl
         sx={{
@@ -46,7 +56,7 @@ export default function Selects(props) {
         }}
       >
         <Select
-          value={year}
+          value={value}
           onChange={handleChange}
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
@@ -54,19 +64,11 @@ export default function Selects(props) {
             select: classes.Select,
             iconOutlined: classes.iconOutlined,
           }}
-          
           className={classes.root}
           input={<OutlinedInput classes={{ input: classes.input }} />}
+          defaultValue={value}
         >
-          <MenuItem value="">
-            <span style={{ color: "#809FB8" }}>{item}</span>
-          </MenuItem>
-          <MenuItem style={{ color: "#809FB8" }} value={2020}>
-            {item}
-          </MenuItem>
-          <MenuItem style={{ color: "#809FB8" }} value={2019}>
-            {item}
-          </MenuItem>
+          {Options}
         </Select>
       </FormControl>
     </div>

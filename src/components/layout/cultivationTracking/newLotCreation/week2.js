@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -41,6 +41,61 @@ const useStyles = makeStyles(() =>
 export default function Week1() {
   const classes = useStyles();
 
+  const [selectedValue, setSelectedValue] = useState("");
+  const [ExpectedYied, setExpectedYied] = useState("");
+  const [GrowingMethords, setGrowingMethords] = useState("");
+  const handleSelectChange = (selectedValue) => {
+    setGrowingMethords(selectedValue);
+  };
+  const GrowingMethordHandleSelectChange = (selectedValue) => {
+    setSelectedValue(selectedValue);
+  };
+  const ExpectedYiedHandleSelectChange = (selectedValue) => {
+    setExpectedYied(selectedValue);
+  };
+  console.log(selectedValue, ExpectedYied, GrowingMethords);
+  const GrowingMethord = [
+    {
+      id: "Hybrid",
+      name: "Hybrid",
+    },
+    {
+      id: "Indica",
+      name: "Indica",
+    },
+    {
+      id: "Sativa",
+      name: "Sativa",
+    },
+  ];
+  const Mes = [
+    {
+      id: "Hybrid",
+      name: "Hybrid",
+    },
+    {
+      id: "Indica",
+      name: "Indica",
+    },
+    {
+      id: "Sativa",
+      name: "Sativa",
+    },
+  ];
+  const CannabisType = [
+    {
+      id: "Hybrid",
+      name: "Hybrid",
+    },
+    {
+      id: "Indica",
+      name: "Indica",
+    },
+    {
+      id: "Sativa",
+      name: "Sativa",
+    },
+  ];
   return (
     <Accordion>
       <AccordionSummary
@@ -98,7 +153,12 @@ export default function Week1() {
           </div>
           <div>
             <div>
-              <Selects label="Type" item="Hybrid" />
+              <Selects
+                label="Type"
+                item="Hybrid"
+                arrayOfData={CannabisType}
+                onSelectChange={handleSelectChange}
+              />
             </div>
             <div>
               <InputFeild
@@ -131,7 +191,12 @@ export default function Week1() {
           </div>
           <div>
             <div>
-              <Selects label="Growing Methord" item="Hybrid" />
+              <Selects
+                label="Growing Methord"
+                item="Hybrid"
+                arrayOfData={GrowingMethord}
+                onSelectChange={GrowingMethordHandleSelectChange}
+              />
             </div>
             <div>
               <div className={classes.Para}></div>
@@ -173,7 +238,12 @@ export default function Week1() {
                   }}
                 >
                   <div style={{ marginTop: "22px" }}>
-                    <Selects item="Mes" label="" />
+                    <Selects
+                      item="Mes"
+                      label=""
+                      arrayOfData={Mes}
+                      onSelectChange={ExpectedYiedHandleSelectChange}
+                    />
                   </div>
                 </FormControl>
               </Box>

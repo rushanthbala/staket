@@ -8,6 +8,16 @@ import {
 } from "@material-ui/core";
 import CloseIcon from "@mui/icons-material/Close";
 
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Button from "@mui/material/Button";
+import Chips from "../../core/chip";
+import Paper from "@mui/material/Paper";
+
 const useStyles = makeStyles(() =>
   createStyles({
     Dialog: {
@@ -80,14 +90,87 @@ const useStyles = makeStyles(() =>
     },
   })
 );
-
+function createData(
+  lotNo,
+  StrainName,
+  exitDate,
+  Amount,
+  Grower,
+  BatchId,
+  Status,
+  options
+) {
+  return {
+    lotNo,
+    StrainName,
+    exitDate,
+    Amount,
+    Grower,
+    BatchId,
+    Status,
+    options,
+  };
+}
+const rows = [
+  createData(
+    "#214314",
+    "Pink Kush",
+    "01/10/2022",
+    "55kg",
+    "Heather K.",
+    "003145",
+    "DRYING"
+  ),
+  createData(
+    "#215613",
+    "Meat Breathe ",
+    "01/21/2020 ",
+    "35kg",
+    "Christian W.",
+    "003145",
+    "DRYING"
+  ),
+  createData(
+    "#214314",
+    "Tropic Runtz",
+    "01/29/2022",
+    "42kg",
+    " Erika D.",
+    "004100",
+    "DRYING"
+  ),
+  createData(
+    "#214314",
+    "Pink Kush",
+    "01/10/2022",
+    "55kg",
+    "Heather K.",
+    "003145",
+    "DRYING"
+  ),
+  createData(
+    "#215613",
+    "Meat Breathe ",
+    "01/21/2020 ",
+    "35kg",
+    "Christian W.",
+    "003145",
+    "DRYING"
+  ),
+  createData(
+    "#214314",
+    "Tropic Runtz",
+    "01/29/2022",
+    "42kg",
+    " Erika D.",
+    "004100",
+    "DRYING"
+  ),
+];
 export default function PreviousLotDetails(props) {
   const { DeatilsOpenHandleClose } = props;
   const classes = useStyles();
-  // const [year, setYear] = React.useState("");
-  // const handleChange = (event) => {
-  //   setYear(event.target.value);
-  // };
+ 
   return (
     <div className={classes.Dialog}>
       <div className={classes.CloseDiv}>
@@ -95,39 +178,73 @@ export default function PreviousLotDetails(props) {
           <CloseIcon />
         </div>
       </div>
-      <DialogTitle>{"New Lot Creation"}</DialogTitle>
+      <DialogTitle>{"Previous Lot Details"}</DialogTitle>
       <DialogContent className={classes.DialogContent}>
         <DialogContentText id="alert-dialog-slide-description">
-          <div className={classes.LotStart}>
-            <div className={classes.MainDiv}>
-              <div className={classes.Para}>Lot Id</div>
-              <div className={classes.ColDiv}>#131942</div>
-            </div>
-            <div className={classes.MainDiv}>
-              <div className={classes.Para}>Strain</div>
-              <div className={classes.ColDiv}>Pink Kush</div>
-            </div>
-            <div className={classes.MainDiv}>
-              <div className={classes.Para}>Exit Date</div>
-              <div className={classes.ColDiv}>01/10/2022</div>
-            </div>
-            <div className={classes.MainDiv}>
-              <div className={classes.Para}>Expected Weight</div>
-              <div className={classes.ColDiv}>55kg</div>
-            </div>
-            <div className={classes.MainDiv}>
-              <div className={classes.Para}>Grower</div>
-              <div className={classes.ColDiv}>Heather K</div>
-            </div>
-            <div className={classes.MainDiv}>
-              <div className={classes.Para}>Batch Number</div>
-              <div className={classes.ColDiv}>#131942</div>
-            </div>
-            <div className={classes.MainDiv}>
-              <div className={classes.Status}>Status</div>
-              <div className={classes.StatusDiv}>SOLD</div>
-            </div>
-          </div>
+          <TableContainer
+            component={Paper}
+            sx={{ marginTop: "2rem", padding: "1rem" }}
+          >
+            <Table
+              size="small"
+              aria-label="a dense table"
+              sx={{
+                [`& .${tableCellClasses.root}`]: {
+                  borderBottom: "none",
+                },
+              }}
+            >
+              <TableHead>
+                <TableRow classes={{ root: classes.HeadRowRoot }}>
+                  <TableCell>Lot No.</TableCell>
+                  <TableCell>Strain Name</TableCell>
+                  <TableCell>Exit Date</TableCell>
+                  <TableCell>Amount</TableCell>
+                  <TableCell>Grower</TableCell>
+                  <TableCell>Batch ID</TableCell>
+                  <TableCell>Status</TableCell>
+                  <TableCell>Options</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row) => (
+                  <TableRow
+                    classes={{ root: classes.BodyRowRoot }}
+                    key={row.lotNo}
+                    sx={{ border: 0 }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.lotNo}
+                    </TableCell>
+                    <TableCell>{row.StrainName}</TableCell>
+                    <TableCell>{row.exitDate}</TableCell>
+                    <TableCell>{row.Amount}</TableCell>
+                    <TableCell>{row.Grower}</TableCell>
+                    <TableCell>{row.BatchId}</TableCell>
+                    <TableCell>
+                      <Chips data={row.Status} />
+                    </TableCell>
+                    <TableCell>
+                      <Button
+                        variant="outlined"
+                        sx={{
+                          color: "#D9E1E7",
+                          border: "2px solid #D9E1E7",
+                          borderRadius: "10px",
+                          ":hover": {
+                            border: "2px solid #D9E1E7",
+                          },
+                        }}
+                        //   onClick={DeatilsOpenHandleOpen}
+                      >
+                        Details
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
         </DialogContentText>
       </DialogContent>
     </div>
