@@ -46,14 +46,14 @@ function filterWeekends(date) {
 }
 
 function App(props) {
-  const { label } = props;
+  const { label,value ,handleDateChange} = props;
   const classes = useStyles();
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  const handleDateChange = (date) => {
-    console.log(date);
-    setSelectedDate(date);
-  };
+  // const handleDateChangeDate1 = (date) => {
+  //   console.log(date);
+  //   setSelectedDate(date);
+  // };
 
   return (
     <div className={classes.App}>
@@ -70,7 +70,7 @@ function App(props) {
           inputVariant="outlined"
           label=""
           format="MM/dd/yyyy"
-          value={selectedDate}
+          value={value}
           onChange={handleDateChange}
           orientation="portrait"
           shouldDisableDate={filterWeekends}

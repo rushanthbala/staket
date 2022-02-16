@@ -39,8 +39,8 @@ export default function Selects(props) {
   // arrayOfData && console.log(arrayOfDatas, "data");
   let Options =
     arrayOfData &&
-    arrayOfData.map((data) => (
-      <MenuItem style={{ color: "#809FB8" }} key={data.id} value={data.id}>
+    arrayOfData.map((data,i) => (
+      <MenuItem style={{ color: "#809FB8" }} key={i} value={data.id}>
         {data.name}
       </MenuItem>
     ));

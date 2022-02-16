@@ -11,6 +11,7 @@ import CustomCalendarDate from "../../../core/datePicker";
 import { Box } from "@material-ui/core";
 import { makeStyles } from "@mui/styles";
 import { createStyles } from "@material-ui/core";
+import axios from "axios";
 const useStyles = makeStyles(() =>
   createStyles({
     TableCol: {
@@ -39,7 +40,6 @@ const useStyles = makeStyles(() =>
 
 export default function Week1() {
   const classes = useStyles();
-
   const CannabisType = [
     {
       id: "Hybrid",
@@ -57,8 +57,17 @@ export default function Week1() {
   const [selectedValue, setSelectedValue] = useState("");
   const [ExpectedYied, setExpectedYied] = useState("");
   const [GrowingMethords, setGrowingMethords] = useState("");
+  const [Date1, setDate1] = React.useState(new Date());
+  const [Date2, setDate2] = React.useState(new Date());
+  const [Date3, setDate3] = React.useState(new Date());
+  const [Date4, setDate4] = React.useState(new Date());
+  const [Date5, setDate5] = React.useState(new Date());
+  const [Date6, setDate6] = React.useState(new Date());
+
   const handleSelectChange = (selectedValue) => {
+    // alert('dsf')
     setGrowingMethords(selectedValue);
+    console.log(GrowingMethords);
   };
   const GrowingMethordHandleSelectChange = (selectedValue) => {
     setSelectedValue(selectedValue);
@@ -66,7 +75,7 @@ export default function Week1() {
   const ExpectedYiedHandleSelectChange = (selectedValue) => {
     setExpectedYied(selectedValue);
   };
-
+  const handleDateChange = () => {};
   const GrowingMethord = [
     {
       id: "Hybrid",
@@ -95,6 +104,77 @@ export default function Week1() {
       name: "Sativa",
     },
   ];
+  const [inputValue, setInputValue] = useState({
+    lotID: "",
+    batchID: "",
+    grower: "",
+    seed: "",
+    strain: "",
+    organicNu: "",
+    eYeild: "",
+  });
+  const { lotID, batchID, grower, seed, strain, organicNu, eYeild } =
+    inputValue;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    console.log(name, value, "///");
+    setInputValue((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    console.log(inputValue);
+  };
+  const ButtonOnClick = () => {
+    const Details = JSON.stringify({
+      strainName: "lotID",
+      // exitDate: Date,
+      // amount: 1800,
+      // grower: grower,
+      // batchId: batchID,
+      // status: grower,
+      // type: selectedValue,
+      // seed: seed,
+      // growingMethod: GrowingMethords,
+      // organicNutrition: organicNu,
+      // expectedYield: eYeild,
+      // vegDate: Date1,
+      // flowerDate: Date2,
+      // harvestDate: Date3,
+      // curingDate: Date4,
+      // packageDate: Date5,
+      // shippingDate: Date6,
+    });
+
+    axios
+      .post(`https://staketapi.moodfor.codes/lots`, Details, {
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((res) => console.log(res))
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+    console.log(Details);
+  };
+  const handleDateChangeDate1 = (date) => {
+    setDate1(date);
+  };
+  const handleDateChangeDate2 = (date) => {
+    setDate2(date);
+  };
+  const handleDateChangeDate3 = (date) => {
+    setDate3(date);
+  };
+  const handleDateChangeDate4 = (date) => {
+    setDate4(date);
+  };
+  const handleDateChangeDate5 = (date) => {
+    setDate5(date);
+  };
+  const handleDateChangeDate6 = (date) => {
+    setDate6(date);
+  };
+
   return (
     <Accordion>
       <AccordionSummary
@@ -109,6 +189,8 @@ export default function Week1() {
           <div>
             <div>
               <InputFeild
+                onChange={handleChange}
+                value={lotID}
                 sx={{
                   m: 1,
                   minWidth: 12,
@@ -116,27 +198,32 @@ export default function Week1() {
                   margin: 0,
                 }}
                 defaultValue=""
-                id="001"
+                id="name"
                 label="Lot ID"
                 placeHolder="Numric"
+                name="lotID"
               />
             </div>
             <div>
               <InputFeild
+                onChange={handleChange}
                 sx={{
                   m: 1,
                   minWidth: 12,
                   minHeight: 68,
                   margin: 0,
                 }}
-                defaultValue=""
+                // defaultValue=""
+                value={batchID}
                 id="001"
                 label="Batch ID"
                 placeHolder="Alpha Numeric"
+                name="batchID"
               />
             </div>
             <div>
               <InputFeild
+                onChange={handleChange}
                 sx={{
                   m: 1,
                   minWidth: 12,
@@ -147,6 +234,8 @@ export default function Week1() {
                 id="001"
                 label="Grower"
                 placeHolder="String Content"
+                name="grower"
+                value={grower}
               />
             </div>
           </div>
@@ -161,6 +250,7 @@ export default function Week1() {
             </div>
             <div>
               <InputFeild
+                onChange={handleChange}
                 sx={{
                   m: 1,
                   minWidth: 12,
@@ -171,10 +261,13 @@ export default function Week1() {
                 id="001"
                 label="Seed"
                 placeHolder="String Content"
+                name="seed"
+                value={seed}
               />
             </div>
             <div>
               <InputFeild
+                onChange={handleChange}
                 sx={{
                   m: 1,
                   minWidth: 12,
@@ -185,6 +278,8 @@ export default function Week1() {
                 id="001"
                 label="Strain"
                 placeHolder="String Content"
+                name="strain"
+                value={strain}
               />
             </div>
           </div>
@@ -200,6 +295,7 @@ export default function Week1() {
             <div>
               <div className={classes.Para}></div>
               <InputFeild
+                onChange={handleChange}
                 sx={{
                   m: 1,
                   minWidth: 12,
@@ -210,11 +306,14 @@ export default function Week1() {
                 id="001"
                 label="Organic Nutrition"
                 placeHolder="Warm Cashing"
+                name="organicNu"
+                value={organicNu}
               />
             </div>
             <div>
               <Box sx={{ display: "flex" }}>
                 <InputFeild
+                  onChange={handleChange}
                   sx={{
                     m: 1,
                     minWidth: 12,
@@ -225,6 +324,8 @@ export default function Week1() {
                   id="001"
                   label="Empected Yield"
                   placeHolder="Warm Cashing"
+                  name="eYeild"
+                  value={eYeild}
                 />
                 <FormControl
                   sx={{
@@ -250,28 +351,52 @@ export default function Week1() {
           </div>
           <div>
             <div>
-              <CustomCalendarDate label="Veg Date" />
+              <CustomCalendarDate
+                label="Veg Date"
+                handleDateChange={handleDateChangeDate1}
+                value={Date1}
+              />
             </div>
             <div>
-              <CustomCalendarDate label="Veg Date" />
+              <CustomCalendarDate
+                label="Veg Date"
+                handleDateChange={handleDateChangeDate2}
+                value={Date2}
+              />
             </div>
             <div>
-              <CustomCalendarDate label="Veg Date" />
+              <CustomCalendarDate
+                label="Veg Date"
+                handleDateChange={handleDateChangeDate3}
+                value={Date3}
+              />
             </div>
           </div>
           <div>
             <div>
-              <CustomCalendarDate label="Shipping" />
+              <CustomCalendarDate
+                label="Shipping"
+                handleDateChange={handleDateChangeDate4}
+                value={Date4}
+              />
             </div>
             <div>
-              <CustomCalendarDate label="Package" />
+              <CustomCalendarDate
+                label="Package"
+                handleDateChange={handleDateChangeDate5}
+                value={Date5}
+              />
             </div>
             <div>
-              <CustomCalendarDate label="Shipping" />
+              <CustomCalendarDate
+                label="Shipping"
+                handleDateChange={handleDateChangeDate6}
+                value={Date6}
+              />
             </div>
           </div>
         </div>
-        <div className={classes.StartLotDiv}>
+        <div className={classes.StartLotDiv} onClick={ButtonOnClick}>
           <div className={classes.StartLot}>Start Lot</div>
         </div>
       </AccordionDetails>

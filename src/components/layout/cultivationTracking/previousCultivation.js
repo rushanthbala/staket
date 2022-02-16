@@ -264,10 +264,10 @@ export default function PreviousCultivationTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows.map((row,i) => (
             <TableRow
               classes={{ root: classes.BodyRowRoot }}
-              key={row.lotNo}
+              key={i}
               sx={{ border: 0 }}
             >
               <TableCell component="th" scope="row">

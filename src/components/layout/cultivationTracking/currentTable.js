@@ -13,6 +13,8 @@ import Button from "@mui/material/Button";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Chips from "../../core/chip";
 import { ReactComponent as Icon } from "../../../assect/svg/ICON.svg";
+import axios from "axios";
+import { useState } from "react";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -44,86 +46,98 @@ const useStyles = makeStyles(() =>
     },
   })
 );
-function createData(
-  lotNo,
-  StrainName,
-  exitDate,
-  Amount,
-  Grower,
-  BatchId,
-  Status,
-  options
-) {
-  return {
-    lotNo,
-    StrainName,
-    exitDate,
-    Amount,
-    Grower,
-    BatchId,
-    Status,
-    options,
-  };
-}
-const rows = [
-  createData(
-    "#214314",
-    "Pink Kush",
-    "01/10/2022",
-    "55kg",
-    "Heather K.",
-    "003145",
-    "DRYING"
-  ),
-  createData(
-    "#215613",
-    "Meat Breathe ",
-    "01/21/2020 ",
-    "35kg",
-    "Christian W.",
-    "003145",
-    "DRYING"
-  ),
-  createData(
-    "#214314",
-    "Tropic Runtz",
-    "01/29/2022",
-    "42kg",
-    " Erika D.",
-    "004100",
-    "DRYING"
-  ),
-  createData(
-    "#214314",
-    "Pink Kush",
-    "01/10/2022",
-    "55kg",
-    "Heather K.",
-    "003145",
-    "DRYING"
-  ),
-  createData(
-    "#215613",
-    "Meat Breathe ",
-    "01/21/2020 ",
-    "35kg",
-    "Christian W.",
-    "003145",
-    "DRYING"
-  ),
-  createData(
-    "#214314",
-    "Tropic Runtz",
-    "01/29/2022",
-    "42kg",
-    " Erika D.",
-    "004100",
-    "DRYING"
-  ),
-];
+// function createData(
+//   lotNo,
+//   StrainName,
+//   exitDate,
+//   Amount,
+//   Grower,
+//   BatchId,
+//   Status,
+//   options
+// ) {
+//   return {
+//     lotNo,
+//     StrainName,
+//     exitDate,
+//     Amount,
+//     Grower,
+//     BatchId,
+//     Status,
+//     options,
+//   };
+// }
+// const rows = [
+//   createData(
+//     "#214314",
+//     "Pink Kush",
+//     "01/10/2022",
+//     "55kg",
+//     "Heather K.",
+//     "003145",
+//     "DRYING"
+//   ),
+//   createData(
+//     "#215613",
+//     "Meat Breathe ",
+//     "01/21/2020 ",
+//     "35kg",
+//     "Christian W.",
+//     "003145",
+//     "DRYING"
+//   ),
+//   createData(
+//     "#214314",
+//     "Tropic Runtz",
+//     "01/29/2022",
+//     "42kg",
+//     " Erika D.",
+//     "004100",
+//     "DRYING"
+//   ),
+//   createData(
+//     "#214314",
+//     "Pink Kush",
+//     "01/10/2022",
+//     "55kg",
+//     "Heather K.",
+//     "003145",
+//     "DRYING"
+//   ),
+//   createData(
+//     "#215613",
+//     "Meat Breathe ",
+//     "01/21/2020 ",
+//     "35kg",
+//     "Christian W.",
+//     "003145",
+//     "DRYING"
+//   ),
+//   createData(
+//     "#214314",
+//     "Tropic Runtz",
+//     "01/29/2022",
+//     "42kg",
+//     " Erika D.",
+//     "004100",
+//     "DRYING"
+//   ),
+// ];
 
 export default function CurrentTable() {
   const classes = useStyles();
+  const [rows, setRows] = useState([]);
+
+  React.useEffect(() => {
+    axios
+      .get(`https://staketapi.moodfor.codes/lots`)
+      .then((res) => {
+        const data = res.data;
+        console.log(res.data, "/=");
+        setRows(data);
+      })
+      .catch((err) => console.log(err, "/=error"));
+  }, []);
 
   return (
     <TableContainer
@@ -138,7 +152,7 @@ export default function CurrentTable() {
           <Button
             variant="contained"
             startIcon={<Icon style={{ fill: "#ffff" }} />}
-            sx={{ backgroundColor: "#3A36DB",marginRight:'1rem' }}
+            sx={{ backgroundColor: "#3A36DB", marginRight: "1rem" }}
           >
             Generate Report
           </Button>
@@ -157,43 +171,43 @@ export default function CurrentTable() {
         <TableHead>
           <TableRow classes={{ root: classes.HeadRowRoot }}>
             <TableCell>Lot No.</TableCell>
-            <TableCell >Strain Name</TableCell>
-            <TableCell >Exit Date</TableCell>
-            <TableCell >Amount</TableCell>
-            <TableCell >Grower</TableCell>
-            <TableCell >Batch ID</TableCell>
-            <TableCell >Status</TableCell>
-            <TableCell >Options</TableCell>
+            <TableCell>Strain Name</TableCell>
+            <TableCell>Exit Date</TableCell>
+            <TableCell>Amount</TableCell>
+            <TableCell>Grower</TableCell>
+            <TableCell>Batch ID</TableCell>
+            <TableCell>Status</TableCell>
+            <TableCell>Options</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {rows && rows.map((row, i) => (
             <TableRow
               classes={{ root: classes.BodyRowRoot }}
-              key={row.lotNo}
+              key={i}
               sx={{ border: 0 }}
             >
               <TableCell component="th" scope="row">
-                {row.lotNo}
+                {row.lotId}
               </TableCell>
-              <TableCell >{row.StrainName}</TableCell>
-              <TableCell >{row.exitDate}</TableCell>
-              <TableCell >{row.Amount}</TableCell>
-              <TableCell >{row.Grower}</TableCell>
-              <TableCell >{row.BatchId}</TableCell>
-              <TableCell >
-                <Chips data={row.Status} />
+              <TableCell>{row.strainName}</TableCell>
+              <TableCell>{row.exitDate}</TableCell>
+              <TableCell>{row.amount}</TableCell>
+              <TableCell>{row.grower}</TableCell>
+              <TableCell>{row.batchId}</TableCell>
+              <TableCell>
+                <Chips data={row.status} />
               </TableCell>
-              <TableCell >
+              <TableCell>
                 <Button
                   variant="outlined"
                   sx={{
                     color: "#D9E1E7",
                     border: "2px solid #D9E1E7",
                     borderRadius: "10px",
-                    ':hover': {
+                    ":hover": {
                       border: "2px solid #D9E1E7",
-                    }
+                    },
                   }}
                 >
                   Details
