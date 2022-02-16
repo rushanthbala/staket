@@ -129,14 +129,6 @@ export default function CurrentTable() {
   const classes = useStyles();
   const [rows, setRows] = useState([]);
 
-  function padTo2Digits(num) {
-    return num.toString().padStart(2, "0");
-  }
-  // function FormatDate(date) {
-  //   date.toISOString().slice(0, 10)
-  // }
-  const FormatDate = (date) => date.toISOString().slice(0, 10);
-
   React.useEffect(() => {
     axios
       .get(`https://staketapi.moodfor.codes/lots`)
