@@ -125,25 +125,41 @@ export default function Week1() {
     }));
     console.log(inputValue);
   };
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, "0");
+  }
+  function formatDate(date) {
+    return [
+      date.getFullYear(),
+      padTo2Digits(date.getMonth() + 1),
+      padTo2Digits(date.getDate()),
+    ].join("-");
+  }
   const ButtonOnClick = () => {
+    var date1 = formatDate(Date1);
+    var date2 = formatDate(Date2);
+    var date3 = formatDate(Date3);
+    var date4 = formatDate(Date4);
+    var date5 = formatDate(Date5);
+    var date6 = formatDate(Date6);
     const Details = JSON.stringify({
-      strainName: "lotID",
-      // exitDate: Date,
-      // amount: 1800,
-      // grower: grower,
-      // batchId: batchID,
-      // status: grower,
-      // type: selectedValue,
-      // seed: seed,
-      // growingMethod: GrowingMethords,
-      // organicNutrition: organicNu,
-      // expectedYield: eYeild,
-      // vegDate: Date1,
-      // flowerDate: Date2,
-      // harvestDate: Date3,
-      // curingDate: Date4,
-      // packageDate: Date5,
-      // shippingDate: Date6,
+      strainName: lotID,
+      exitDate: date1,
+      amount: 1800,
+      grower: grower,
+      batchId: batchID,
+      status: grower,
+      type: selectedValue,
+      seed: seed,
+      growingMethod: GrowingMethords,
+      organicNutrition: organicNu,
+      expectedYield: eYeild,
+      vegDate: date2,
+      flowerDate: date3,
+      harvestDate: date4,
+      curingDate: date5,
+      packageDate: date6,
+      shippingDate: date6,
     });
 
     axios
