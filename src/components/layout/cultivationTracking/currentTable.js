@@ -15,6 +15,7 @@ import Chips from "../../core/chip";
 import { ReactComponent as Icon } from "../../../assect/svg/ICON.svg";
 import axios from "axios";
 import { useState } from "react";
+import Moment from "react-moment";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -128,6 +129,14 @@ export default function CurrentTable() {
   const classes = useStyles();
   const [rows, setRows] = useState([]);
 
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, "0");
+  }
+  // function FormatDate(date) {
+  //   date.toISOString().slice(0, 10)
+  // }
+  const FormatDate = (date) => date.toISOString().slice(0, 10);
+
   React.useEffect(() => {
     axios
       .get(`https://staketapi.moodfor.codes/lots`)
@@ -138,7 +147,7 @@ export default function CurrentTable() {
       })
       .catch((err) => console.log(err, "/=error"));
   }, []);
-
+  console.log(new Date(), "///");
   return (
     <TableContainer
       component={Paper}
@@ -181,40 +190,43 @@ export default function CurrentTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows && rows.map((row, i) => (
-            <TableRow
-              classes={{ root: classes.BodyRowRoot }}
-              key={i}
-              sx={{ border: 0 }}
-            >
-              <TableCell component="th" scope="row">
-                {row.lotId}
-              </TableCell>
-              <TableCell>{row.strainName}</TableCell>
-              <TableCell>{row.exitDate}</TableCell>
-              <TableCell>{row.amount}</TableCell>
-              <TableCell>{row.grower}</TableCell>
-              <TableCell>{row.batchId}</TableCell>
-              <TableCell>
-                <Chips data={row.status} />
-              </TableCell>
-              <TableCell>
-                <Button
-                  variant="outlined"
-                  sx={{
-                    color: "#D9E1E7",
-                    border: "2px solid #D9E1E7",
-                    borderRadius: "10px",
-                    ":hover": {
+          {rows &&
+            rows.map((row, i) => (
+              <TableRow
+                classes={{ root: classes.BodyRowRoot }}
+                key={i}
+                sx={{ border: 0 }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.lotId}
+                </TableCell>
+                <TableCell>{row.strainName}</TableCell>
+                <TableCell>
+                  <Moment format="YYYY-MM-DD">{row.exitDate}</Moment>
+                </TableCell>
+                <TableCell>{row.amount} Kg</TableCell>
+                <TableCell>{row.grower}</TableCell>
+                <TableCell>{row.batchId}</TableCell>
+                <TableCell>
+                  <Chips data={row.status} />
+                </TableCell>
+                <TableCell>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      color: "#D9E1E7",
                       border: "2px solid #D9E1E7",
-                    },
-                  }}
-                >
-                  Details
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
+                      borderRadius: "10px",
+                      ":hover": {
+                        border: "2px solid #D9E1E7",
+                      },
+                    }}
+                  >
+                    Details
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </TableContainer>
