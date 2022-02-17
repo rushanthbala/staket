@@ -10,6 +10,8 @@ import { createStyles } from "@material-ui/core";
 import SearchIcon from "@mui/icons-material/Search";
 import { Avatar, FormControl, Select } from "@mui/material";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import Moment from "react-moment";
+
 const useStyles = makeStyles(() =>
   createStyles({
     TrackingTitle: {
@@ -41,7 +43,7 @@ const useStyles = makeStyles(() =>
       display: "flex !important",
       justifyContent: "flex-start",
       alignItems: "center",
-       borderRadius: "16px !important",
+      borderRadius: "16px !important",
     },
     iconOutlined: {
       color: "#809FB8 !important",
@@ -88,7 +90,9 @@ export default function CultivationTracking() {
             Cultivation Tracking
           </div>
           <div variant="subtitle2" className={classes.TrackingTime}>
-            12:15 PM at 23rd December 2021
+            <Moment format=" h:mm a">{new Date()}</Moment> at
+            <Moment format="  Do MMMM  YYYY">{new Date()}</Moment>
+            {/* 12:15 PM at 23rd December 2021 */}
           </div>
         </div>
         <Box
