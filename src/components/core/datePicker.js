@@ -22,13 +22,14 @@ const useStyles = makeStyles((prop) =>
       },
       "& .MuiInputBase-input": {
         height: "32px",
+        width:'72px',
         color: "#B88080",
         // borderRadius: 8,
         position: "relative",
         // border: "1px solid #ced4da",
         fontSize: 16,
         width: "auto",
-        padding: "0px 12px",
+        padding: "0px 0px 0px 9px",
       },
     },
     Para: {
@@ -62,7 +63,7 @@ function App(props) {
             width: "162px",
             height: "32px",
           }}
-          keyboardIcon={<KeyboardArrowDownIcon />}
+          // keyboardIcon={<KeyboardArrowDownIcon />}
           className={classes.textField}
           margin="none"
           inputVariant="outlined"
