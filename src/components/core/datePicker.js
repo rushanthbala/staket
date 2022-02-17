@@ -1,6 +1,6 @@
 // App.js
 import "date-fns";
-import React, { useState } from "react";
+import React from "react";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
@@ -16,7 +16,6 @@ const useStyles = makeStyles((prop) =>
     },
     textField: {
       "label + &": {
-        // marginTop: theme.spacing(2),
         color: "red",
         fontSize: "16px",
         fontWeight: 600,
@@ -48,7 +47,6 @@ function filterWeekends(date) {
 function App(props) {
   const { label,value ,handleDateChange} = props;
   const classes = useStyles();
-  const [selectedDate, setSelectedDate] = useState(new Date());
 
   // const handleDateChangeDate1 = (date) => {
   //   console.log(date);

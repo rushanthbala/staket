@@ -61,6 +61,21 @@ const useStyles = makeStyles(() =>
       boxShadow: "none !important",
       border: "none !important",
     },
+    root: {
+      borderRadius: "16px !important",
+      color: "#809FB8",
+      height: "52px",
+    },
+    Select: {
+      padding: "9.5px 14px !important",
+      minHeight: "32px !important",
+      border: "2px solid #d9e1e7 !important",
+      background: "#F1F4F9 0% 0% no-repeat padding-box !important",
+      display: "flex !important",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      borderRadius: "16px !important",
+    },
   })
 );
 function createData(
@@ -232,12 +247,12 @@ export default function PreviousCultivationTable() {
                 select: classes.Select,
                 iconOutlined: classes.iconOutlined,
               }}
+              className={classes.root}
             >
               <MenuItem value="">
                 <span>Newest</span>
               </MenuItem>
-              {/* <MenuItem value={2020}>2020</MenuItem>
-              <MenuItem value={2019}>2019</MenuItem> */}
+              <MenuItem value={2020}>Oldest</MenuItem>
             </Select>
           </FormControl>
         </Box>
@@ -264,7 +279,7 @@ export default function PreviousCultivationTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row,i) => (
+          {rows.map((row, i) => (
             <TableRow
               classes={{ root: classes.BodyRowRoot }}
               key={i}

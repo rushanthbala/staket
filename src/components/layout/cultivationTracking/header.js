@@ -41,6 +41,7 @@ const useStyles = makeStyles(() =>
       display: "flex !important",
       justifyContent: "flex-start",
       alignItems: "center",
+       borderRadius: "16px !important",
     },
     iconOutlined: {
       color: "#809FB8 !important",
@@ -52,6 +53,11 @@ const useStyles = makeStyles(() =>
       minWidth: "60px",
       minHeight: "60px",
       borderRadius: "16px",
+    },
+    root: {
+      borderRadius: "16px !important",
+      color: "#809FB8",
+      // height: "32px",
     },
     Lft: {
       "& > :nth-child(n+1)": {
@@ -90,7 +96,6 @@ export default function CultivationTracking() {
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
-            // m: 1,
           }}
           className={classes.Lft}
         >
@@ -134,6 +139,7 @@ export default function CultivationTracking() {
                 select: classes.Select,
                 iconOutlined: classes.iconOutlined,
               }}
+              className={classes.root}
             >
               <MenuItem value="">
                 <span>2021</span>
