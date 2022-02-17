@@ -9,6 +9,8 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import Week1 from "./newLotCreation/week1";
 import Week2 from "./newLotCreation/week2";
+import Germination from "./newLotCreation/germination";
+import Vegitative from "./newLotCreation/vegitative";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -154,9 +156,11 @@ export default function NewLotCreation(props) {
               <div className={classes.StatusDiv}>SOLD</div>
             </div>
           </div>
-          <Week1 />
+          <Germination />
+          <br/>
+          {/* <Week1 /> */}
           <br />
-          <Week2 />
+          <Vegitative />
           <br />
           <Week2 />
           <br />
