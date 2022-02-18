@@ -126,7 +126,7 @@ export default function NewLotCreation(props) {
       <DialogTitle>{"New Lot Creation"}</DialogTitle>
       <DialogContent className={classes.DialogContent}>
         <DialogContentText id="alert-dialog-slide-description">
-          <div className={classes.LotStart}>
+          {/* <div className={classes.LotStart}>
             <div className={classes.MainDiv}>
               <div className={classes.Para}>Lot Id</div>
               <div className={classes.ColDiv}>#131942</div>
@@ -155,9 +155,9 @@ export default function NewLotCreation(props) {
               <div className={classes.Status}>Status</div>
               <div className={classes.StatusDiv}>SOLD</div>
             </div>
-          </div>
+          </div> */}
           <Germination />
-          <br/>
+          <br />
           {/* <Week1 /> */}
           <br />
           <Vegitative />

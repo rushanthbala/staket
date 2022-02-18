@@ -56,9 +56,10 @@ export default function InputFeild(props) {
     value,
     onChange,
     name,
+    type,
+    pattern,
   } = props;
 
- 
   return (
     <FormControl variant="standard">
       <InputLabel
@@ -78,6 +79,8 @@ export default function InputFeild(props) {
         value={value}
         onChange={onChange}
         name={name}
+        type={type}
+        inputProps={ {pattern} && { pattern: pattern }}
       />
     </FormControl>
   );

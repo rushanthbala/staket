@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -9,6 +9,10 @@ import { Box } from "@material-ui/core";
 import { makeStyles } from "@mui/styles";
 import { createStyles } from "@material-ui/core";
 import Week2 from "./week2";
+import Week3 from "./week3";
+import Week4 from "./week4";
+import Week5 from "./week5";
+import Week6 from "./week6";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -35,10 +39,10 @@ const useStyles = makeStyles(() =>
     },
     AccordionRoot: {
       backgroundColor: "#6CD3A0",
-      border: "2px solid #D9E1E7",
       borderRadius: "16px !important ",
       border: "none !important",
       boxShadow: "none !important",
+      position: "inherit !important",
     },
   })
 );
@@ -64,6 +68,17 @@ export default function Vegitative() {
       </AccordionSummary>
       <AccordionDetails>
         <Week2 />
+        <br />
+        <Week3 />
+        <br />
+        <Week4 />
+        <br />
+        <Week5 />
+        <br />
+        <Week5 />
+        <br />
+        <Week6 />
+        <br />
       </AccordionDetails>
     </Accordion>
   );

@@ -34,7 +34,7 @@ const useStyles = makeStyles(() =>
     },
     AccordionRoot: {
       backgroundColor: "#6CD3A0",
-      border: "2px solid #D9E1E7",
+      position: "inherit !important",
       borderRadius: "16px !important ",
       border: "none !important",
       boxShadow: "none !important",
