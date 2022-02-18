@@ -34,6 +34,15 @@ const useStyles = makeStyles(() =>
       background: "#55815C 0% 0% no-repeat padding-box",
       borderRadius: "8px",
       cursor: "pointer",
+      color: "#fff",
+
+    },
+    AccordionRoot: {
+      backgroundColor: "#6CD3A0",
+      borderRadius: "16px !important ",
+      border: " 2px solid #d9e1e7 !important",
+      boxShadow: "none !important",
+      position: "inherit !important",
     },
   })
 );
@@ -97,7 +106,10 @@ export default function Week1() {
     },
   ];
   return (
-    <Accordion>
+    <Accordion
+    classes={{ root: classes.AccordionRoot }}
+
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"

@@ -14,11 +14,12 @@ const useStyles = makeStyles(() =>
       padding: "1rem",
     },
     CardTitle: {
-        fontSize: "52px !important",
-        fontWeight:'700px !important'
+        fontSize: "42px !important",
+        fontWeight:'400 !important'
     },
     CardPara: {
       maxWidth: "1100px",
+      fontWeight:'300 !important'
     },
   })
 );

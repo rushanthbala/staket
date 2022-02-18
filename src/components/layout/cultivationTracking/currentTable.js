@@ -20,7 +20,7 @@ import Moment from "react-moment";
 const useStyles = makeStyles(() =>
   createStyles({
     CurrentHead: {
-      fontSize: "26px",
+      fontSize: "22px",
       color: "#06152B",
       margin: "0 !important",
       padding: "10px",
@@ -38,12 +38,21 @@ const useStyles = makeStyles(() =>
     HeadRowRoot: {
       "& .MuiTableCell-head": {
         color: "#809FB8",
+        fontWeight: "700",
       },
     },
     BodyRowRoot: {
       "& .MuiTableCell-body": {
         color: "#06152B !important",
       },
+    },
+    TableRoot: {
+      background: "#ffffff) 0% 0% no-repeat padding-box !important",
+      border: "1px solid #d9e1e7cc !important",
+      background: "#FFFFFF 0% 0% no-repeat padding-box !important",
+      border: "1px solid #D9E1E7CC !important",
+      borderRadius: "16px !important",
+      boxShadow: "none !important",
     },
   })
 );
@@ -130,20 +139,21 @@ export default function CurrentTable() {
   const [rows, setRows] = useState([]);
 
   React.useEffect(() => {
-    axios
-      .get(`https://staketapi.moodfor.codes/lots`)
-      .then((res) => {
-        const data = res.data;
-        console.log(res.data, "/=");
-        setRows(data);
-      })
-      .catch((err) => console.log(err, "/=error"));
+    // axios
+    //   .get(`https://staketapi.moodfor.codes/lots`)
+    //   .then((res) => {
+    //     const data = res.data;
+    //     console.log(res.data, "/=");
+    //     setRows(data);
+    //   })
+    //   .catch((err) => console.log(err, "/=error"));
   }, []);
   console.log(new Date(), "///");
   return (
     <TableContainer
       component={Paper}
       sx={{ marginTop: "2rem", padding: "1rem" }}
+      classes={{ root: classes.TableRoot }}
     >
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box sx={{ display: "flex" }}>
@@ -153,7 +163,13 @@ export default function CurrentTable() {
           <Button
             variant="contained"
             startIcon={<Icon style={{ fill: "#ffff" }} />}
-            sx={{ backgroundColor: "#3A36DB", marginRight: "1rem" }}
+            sx={{
+              backgroundColor: "#3A36DB",
+              marginRight: "1rem",
+              height: "52px !important",
+              borderRadius: "16px",
+              backgroundColor: "#3A36DB",
+            }}
           >
             Generate Report
           </Button>
@@ -209,10 +225,17 @@ export default function CurrentTable() {
                       color: "#D9E1E7",
                       border: "2px solid #D9E1E7",
                       borderRadius: "10px",
+                      height: "40px !important",
+                      width: "72px !important",
+                      padding: "10px 14px !important",
+                      fontSize: "12px !important",
+                      color: "#06152B !important",
+                      fontWeight: "300 !important",
                       ":hover": {
                         border: "2px solid #D9E1E7",
                       },
                     }}
+                    // onClick={DeatilsOpenHandleOpen}
                   >
                     Details
                   </Button>

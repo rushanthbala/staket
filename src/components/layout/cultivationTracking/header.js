@@ -17,17 +17,18 @@ const useStyles = makeStyles(() =>
     TrackingTitle: {
       fontWeight: "600 !important",
       color: "#06152B",
-      fontSize: "34px",
+      fontSize: "28px",
     },
     TrackingTime: {
       fontWeight: 400,
       color: "#809FB8",
-      fontSize: "26px",
+      fontSize: "22px",
     },
     Inputroot: {
       borderRadius: "16px !important",
       color: "#06152B !important",
       height: "60px",
+      border: "2px solid #d9e1e7",
     },
     InputPlaceholder: {
       "&::placeholder": {
@@ -44,6 +45,7 @@ const useStyles = makeStyles(() =>
       justifyContent: "flex-start",
       alignItems: "center",
       borderRadius: "16px !important",
+      // border: "2px solid red !important",
     },
     iconOutlined: {
       color: "#809FB8 !important",
@@ -119,7 +121,7 @@ export default function CultivationTracking() {
               }}
               size="small"
               margin="dense"
-              sx={{ borderRadius: "10px" }}
+              style={{ borderRadius: "16px" , border:'none'}}
               classes={{
                 root: classes.Inputroot,
                 input: classes.InputPlaceholder,

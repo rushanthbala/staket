@@ -9,7 +9,7 @@ import ListItemText from "@mui/material/ListItemText";
 // import InboxIcon from "@mui/icons-material/MoveToInbox";
 import Logo from "../assect/images/logo.png";
 import { makeStyles } from "@mui/styles";
-import { createStyles, Toolbar } from "@material-ui/core";
+import { createStyles } from "@material-ui/core";
 import CultivationTracking from "../components/layout/cultivationTracking/index";
 import { ReactComponent as Dashboard } from "../assect/svg/dashboard.svg";
 import { ReactComponent as Analytics } from "../assect/svg/analytics.svg";
@@ -21,7 +21,7 @@ import { ReactComponent as Settings } from "../assect/svg/settings.svg";
 import { ReactComponent as Traffic } from "../assect/svg/traffic icon.svg";
 import { useLocation } from "react-router-dom";
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 const useStyles = makeStyles(() =>
   createStyles({
     logo: {
@@ -40,7 +40,7 @@ const useStyles = makeStyles(() =>
       borderRadious: "10px !important",
       "&:hover": {
         backgroundColor: "#3B9161",
-        opacity:'0.8',
+        opacity: "0.8",
         cursor: "pointer",
         borderRadius: "10px",
         color: "#fff",
@@ -62,6 +62,7 @@ const useStyles = makeStyles(() =>
     },
     list: {
       padding: "10px !important",
+      fontSize: "22px !important",
     },
     selected: {
       color: "red !important",
@@ -69,7 +70,11 @@ const useStyles = makeStyles(() =>
     Notification: {
       color: "#809FB8 !important",
       paddingLeft: "26px !important",
-      fontSize: "12px !important",
+      fontSize: "16px !important",
+      // fontSize: "24px !important",
+      margin: "22px 0px !important",
+      letterSpacing: '2.4px !important',
+      fontWeight:"700 !important "
     },
     paper: {
       border: "none",
@@ -86,9 +91,16 @@ const useStyles = makeStyles(() =>
     CopyRight: {
       color: "#06152B",
       fontWeight: "500",
+      fontSize:'18px'
+
     },
     CopyRightPara: {
       color: "#809FB8",
+      fontSize:'14px'
+    },
+    ListPrimary: {
+      fontSize: "17px !important",
+
     },
   })
 );
@@ -189,7 +201,10 @@ export default function Home() {
                   <ListItemIcon className={classes.ListItemIcon}>
                     <text.icon style={{ color: "red" }} />
                   </ListItemIcon>
-                  <ListItemText primary={text.title} />
+                  <ListItemText
+                    classes={{ primary: classes.ListPrimary }}
+                    primary={text.title}
+                  />
                 </ListItem>
               </List>
             ))}
@@ -210,12 +225,15 @@ export default function Home() {
                     <text.icon />
                   </ListItemIcon>
 
-                  <ListItemText primary={text.title} />
+                  <ListItemText
+                    classes={{ primary: classes.ListPrimary }}
+                    primary={text.title}
+                  />
                 </ListItem>
               ))}
             </div>
           </div>
-          <Toolbar />
+          {/* <Toolbar /> */}
           <Box sx={{ m: 1, padding: "10px" }}>
             <div className={classes.CopyRight}> © 2021 STAKET</div>
             <div className={classes.CopyRightPara}>

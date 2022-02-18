@@ -34,6 +34,14 @@ const useStyles = makeStyles(() =>
       background: "#55815C 0% 0% no-repeat padding-box",
       borderRadius: "8px",
       cursor: "pointer",
+      color: "#fff",
+    },
+    AccordionRoot: {
+      backgroundColor: "#6CD3A0",
+      borderRadius: "16px !important ",
+      border: " 2px solid #d9e1e7 !important",
+      boxShadow: "none !important",
+      position: "inherit !important",
     },
   })
 );
@@ -86,12 +94,26 @@ export default function Week1() {
       name: "Hydroponics",
     },
     {
-      id: "Soil",
+      id: "G",
       name: "Soil",
     },
     {
       id: "Other",
       name: "Other",
+    },
+  ];
+  const Amount = [
+    {
+      id: "Kg",
+      name: "Kg",
+    },
+    {
+      id: "Lps",
+      name: "Lps",
+    },
+    {
+      id: "G",
+      name: "G",
     },
   ];
   const Mes = [
@@ -216,7 +238,10 @@ export default function Week1() {
   };
 
   return (
-    <Accordion defaultExpanded={"true"}>
+    <Accordion
+      defaultExpanded={"true"}
+      classes={{ root: classes.AccordionRoot }}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1a-content"
@@ -335,21 +360,11 @@ export default function Week1() {
               />
             </div>
             <div>
-              <div className={classes.Para}></div>
-              <InputFeild
-                onChange={handleChange}
-                sx={{
-                  m: 1,
-                  minWidth: 12,
-                  minHeight: 68,
-                  margin: 0,
-                }}
-                defaultValue=""
-                id="001"
+              <Selects
                 label="Organic Nutrition"
-                placeHolder="Warm Cashing"
-                name="organicNu"
-                value={organicNu}
+                item="Hybrid"
+                arrayOfData={Mes}
+                // onSelectChange={GrowingMethordHandleSelectChange}
               />
             </div>
             <div>
@@ -384,7 +399,7 @@ export default function Week1() {
                     <Selects
                       item="Mes"
                       label=""
-                      arrayOfData={Mes}
+                      arrayOfData={Amount}
                       onSelectChange={ExpectedYiedHandleSelectChange}
                     />
                   </div>

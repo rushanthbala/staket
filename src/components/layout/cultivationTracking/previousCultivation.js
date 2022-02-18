@@ -20,7 +20,7 @@ import PreviousLotDetails from "./previousLotDetails";
 const useStyles = makeStyles(() =>
   createStyles({
     CurrentHead: {
-      fontSize: "26px",
+      fontSize: "22px",
       color: "#06152B",
       margin: "0 !important",
       padding: "10px",
@@ -35,6 +35,7 @@ const useStyles = makeStyles(() =>
     HeadRowRoot: {
       "& .MuiTableCell-head": {
         color: "#809FB8",
+        fontWeight: "700",
       },
     },
     BodyRowRoot: {
@@ -75,6 +76,14 @@ const useStyles = makeStyles(() =>
       justifyContent: "flex-start",
       alignItems: "center",
       borderRadius: "16px !important",
+    },
+    TableRoot: {
+      background: "#ffffff) 0% 0% no-repeat padding-box !important",
+      border: "1px solid #d9e1e7cc !important",
+      background: "#FFFFFF 0% 0% no-repeat padding-box !important",
+      // border: "1px solid #D9E1E7CC !important",
+      borderRadius: "16px !important",
+      boxShadow: "none !important",
     },
   })
 );
@@ -183,6 +192,7 @@ export default function PreviousCultivationTable() {
     <TableContainer
       component={Paper}
       sx={{ marginTop: "2rem", padding: "1rem" }}
+      classes={{ root: classes.TableRoot }}
     >
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box sx={{ display: "flex", flexDirection: "row" }}>
@@ -214,7 +224,7 @@ export default function PreviousCultivationTable() {
             <PreviousLotDetails
               DeatilsOpenHandleClose={DeatilsOpenHandleClose}
             />
-            sdsdsd
+            {/* sdsdsd */}
           </Dialog>
           <Button
             variant="contained"
@@ -222,6 +232,7 @@ export default function PreviousCultivationTable() {
               height: "52px !important",
               borderRadius: "16px",
               backgroundColor: "#3A36DB",
+              fontSize: "14px",
             }}
             startIcon={<AddIcon />}
             onClick={handleClickOpen}
@@ -303,6 +314,12 @@ export default function PreviousCultivationTable() {
                     color: "#D9E1E7",
                     border: "2px solid #D9E1E7",
                     borderRadius: "10px",
+                    height: "40px !important",
+                    width: "72px !important",
+                    padding: "10px 14px !important",
+                    fontSize: "12px !important",
+                    color: "#06152B !important",
+                    fontWeight: "300 !important",
                     ":hover": {
                       border: "2px solid #D9E1E7",
                     },

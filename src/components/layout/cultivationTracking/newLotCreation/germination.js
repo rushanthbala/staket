@@ -31,6 +31,33 @@ const useStyles = makeStyles(() =>
       background: "#55815C 0% 0% no-repeat padding-box",
       borderRadius: "8px",
       cursor: "pointer",
+      color: "#fff",
+    },
+
+    StartLot1: {
+      color: "#fff",
+
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "162px",
+      height: "32px",
+      background: "#55815C96 0% 0% no-repeat padding-box;",
+      borderRadius: "8px",
+      cursor: "pointer",
+      margin: "0 10px 0 0px",
+    },
+
+    StartLot2: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "162px",
+      height: "32px",
+      background: "#68B174 0% 0% no-repeat padding-box",
+      borderRadius: "8px",
+      color: "#fff",
+      cursor: "pointer",
     },
     AccordionRoot: {
       backgroundColor: "#6CD3A0",
@@ -48,7 +75,7 @@ export default function Germination() {
   return (
     <Accordion
       classes={{ root: classes.AccordionRoot }}
-    //   defaultExpanded={"true"}
+      //   defaultExpanded={"true"}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
@@ -64,6 +91,10 @@ export default function Germination() {
       <AccordionDetails>
         <Week1 />
       </AccordionDetails>
+      <div className={classes.StartLotDiv}>
+        <div className={classes.StartLot1}>Add Another Week</div>
+        <div className={classes.StartLot2}>Move To Next State</div>
+      </div>
     </Accordion>
   );
 }
