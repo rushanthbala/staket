@@ -74,11 +74,11 @@ export default function Week1() {
   const [Amounts, setAmounts] = React.useState(new Date());
   const [organicNutrition, setOrganicNutrition] = React.useState("");
   const [Type, setType] = React.useState("");
-  
+
   const handleSelectChange = (selectedValue) => {
     setType(selectedValue);
   };
-  
+
   const NutritionHandleSelectChange = (selectedValue) => {
     setOrganicNutrition(selectedValue);
   };
@@ -214,6 +214,23 @@ export default function Week1() {
       curingDate: date5,
       packageDate: date6,
       shippingDate: date6,
+      // strainName: "test 2",
+      // exitDate: "2022-02-15",
+      // amount: 1800,
+      // grower: "testing 2",
+      // batchId: 13,
+      // status: "growing",
+      // type: "type 2",
+      // seed: "seed 2",
+      // growingMethod: "watering",
+      // organicNutrition: "x1",
+      // expectedYield: "233",
+      // vegDate: "2022-02-15",
+      // flowerDate: "2022-02-15",
+      // harvestDate: "2022-02-15",
+      // curingDate: "2022-02-15",
+      // packageDate: "2022-02-15",
+      // shippingDate: "2022-02-15",
     });
 
     axios
