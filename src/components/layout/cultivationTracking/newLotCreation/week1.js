@@ -196,10 +196,12 @@ export default function Week1() {
     var date4 = formatDate(Date4);
     var date5 = formatDate(Date5);
     var date6 = formatDate(Date6);
+    var amount = eYeild + Amounts;
     const Details = JSON.stringify({
-      strainName: lotID,
+      lotId: lotID,
+      strainName: strain,
       exitDate: date1,
-      amount: eYeild,
+      amount: amount,
       grower: grower,
       batchId: batchID,
       status: grower,
@@ -214,23 +216,6 @@ export default function Week1() {
       curingDate: date5,
       packageDate: date6,
       shippingDate: date6,
-      // strainName: "test 2",
-      // exitDate: "2022-02-15",
-      // amount: 1800,
-      // grower: "testing 2",
-      // batchId: 13,
-      // status: "growing",
-      // type: "type 2",
-      // seed: "seed 2",
-      // growingMethod: "watering",
-      // organicNutrition: "x1",
-      // expectedYield: "233",
-      // vegDate: "2022-02-15",
-      // flowerDate: "2022-02-15",
-      // harvestDate: "2022-02-15",
-      // curingDate: "2022-02-15",
-      // packageDate: "2022-02-15",
-      // shippingDate: "2022-02-15",
     });
 
     axios
@@ -290,7 +275,7 @@ export default function Week1() {
                 defaultValue=""
                 id="name"
                 label="Lot ID"
-                placeHolder="Numric"
+                placeHolder="lot ID"
                 name="lotID"
               />
             </div>
@@ -307,7 +292,7 @@ export default function Week1() {
                 value={batchID}
                 id="001"
                 label="Batch ID"
-                placeHolder="Alpha Numeric"
+                placeHolder="Batch ID"
                 name="batchID"
                 pattern="/^[a-z0-9]+$/i"
               />
@@ -324,7 +309,7 @@ export default function Week1() {
                 defaultValue=""
                 id="001"
                 label="Grower"
-                placeHolder="String Content"
+                placeHolder="Grower"
                 name="grower"
                 value={grower}
                 pattern="/^[a-z0-9]+$/i"
@@ -352,7 +337,7 @@ export default function Week1() {
                 defaultValue=""
                 id="001"
                 label="Seed"
-                placeHolder="String Content"
+                placeHolder="Seed"
                 name="seed"
                 value={seed}
               />
@@ -369,7 +354,7 @@ export default function Week1() {
                 defaultValue=""
                 id="001"
                 label="Strain"
-                placeHolder="String Content"
+                placeHolder="Strain"
                 name="strain"
                 value={strain}
               />
@@ -404,8 +389,8 @@ export default function Week1() {
                   }}
                   defaultValue=""
                   id="001"
-                  label="Empected Yield"
-                  placeHolder="Warm Cashing"
+                  label="Amount"
+                  placeHolder="Weight"
                   name="eYeild"
                   value={eYeild}
                   type="number"

@@ -212,7 +212,7 @@ export default function CurrentTable() {
                 <TableCell>
                   <Moment format="YYYY-MM-DD">{row.exitDate}</Moment>
                 </TableCell>
-                <TableCell>{row.amount} Kg</TableCell>
+                <TableCell>{row.amount} </TableCell>
                 <TableCell>{row.grower}</TableCell>
                 <TableCell>{row.batchId}</TableCell>
                 <TableCell>
