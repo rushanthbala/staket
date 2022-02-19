@@ -71,14 +71,22 @@ export default function Week1() {
   const [Date4, setDate4] = React.useState(new Date());
   const [Date5, setDate5] = React.useState(new Date());
   const [Date6, setDate6] = React.useState(new Date());
-
+  const [Amounts, setAmounts] = React.useState(new Date());
+  const [organicNutrition, setOrganicNutrition] = React.useState("");
+  const [Type, setType] = React.useState("");
+  
   const handleSelectChange = (selectedValue) => {
-    // alert('dsf')
-    setGrowingMethords(selectedValue);
-    console.log(GrowingMethords);
+    setType(selectedValue);
+  };
+  
+  const NutritionHandleSelectChange = (selectedValue) => {
+    setOrganicNutrition(selectedValue);
   };
   const GrowingMethordHandleSelectChange = (selectedValue) => {
-    setSelectedValue(selectedValue);
+    setGrowingMethords(selectedValue);
+  };
+  const AmountHandleSelectChange = (selectedValue) => {
+    setAmounts(selectedValue);
   };
   const ExpectedYiedHandleSelectChange = (selectedValue) => {
     setExpectedYied(selectedValue);
@@ -191,15 +199,15 @@ export default function Week1() {
     const Details = JSON.stringify({
       strainName: lotID,
       exitDate: date1,
-      amount: 1800,
+      amount: eYeild,
       grower: grower,
       batchId: batchID,
       status: grower,
-      type: selectedValue,
+      type: Type,
       seed: seed,
       growingMethod: GrowingMethords,
-      organicNutrition: organicNu,
-      expectedYield: eYeild,
+      organicNutrition: organicNutrition,
+      expectedYield: Amounts,
       vegDate: date2,
       flowerDate: date3,
       harvestDate: date4,
@@ -364,7 +372,7 @@ export default function Week1() {
                 label="Organic Nutrition"
                 item="Hybrid"
                 arrayOfData={Mes}
-                // onSelectChange={GrowingMethordHandleSelectChange}
+                onSelectChange={NutritionHandleSelectChange}
               />
             </div>
             <div>
@@ -400,7 +408,8 @@ export default function Week1() {
                       item="Mes"
                       label=""
                       arrayOfData={Amount}
-                      onSelectChange={ExpectedYiedHandleSelectChange}
+                      onSelectChange={AmountHandleSelectChange}
+                      // ExpectedYiedHandleSelectChange
                     />
                   </div>
                 </FormControl>

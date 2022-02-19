@@ -139,14 +139,14 @@ export default function CurrentTable() {
   const [rows, setRows] = useState([]);
 
   React.useEffect(() => {
-    // axios
-    //   .get(`https://staketapi.moodfor.codes/lots`)
-    //   .then((res) => {
-    //     const data = res.data;
-    //     console.log(res.data, "/=");
-    //     setRows(data);
-    //   })
-    //   .catch((err) => console.log(err, "/=error"));
+    axios
+      .get(`https://staketapi.moodfor.codes/lots`)
+      .then((res) => {
+        const data = res.data;
+        console.log(res.data, "/=");
+        setRows(data);
+      })
+      .catch((err) => console.log(err, "/=error"));
   }, []);
   console.log(new Date(), "///");
   return (
