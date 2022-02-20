@@ -24,7 +24,10 @@ const useStyles = makeStyles(
         borderRadius: "16px !important",
         color: "#06152B !important",
         height: "60px",
-        // border: "2px solid #d9e1e7 !important",
+        border: "2px solid #d9e1e7 !important",
+        "& fieldset": {
+          border: "none !important",
+        },
       },
       InputPlaceholder: {
         "&::placeholder": {
