@@ -7,63 +7,65 @@ import { Avatar, FormControl, Select } from "@mui/material";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import Moment from "react-moment";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    TrackingTitle: {
-      fontWeight: "600 !important",
-      color: "#06152B",
-      fontSize: "28px",
-    },
-    TrackingTime: {
-      fontWeight: 400,
-      color: "#809FB8",
-      fontSize: "22px",
-    },
-    Inputroot: {
-      borderRadius: "16px !important",
-      color: "#06152B !important",
-      height: "60px",
-      // border: "2px solid #d9e1e7 !important",
-    },
-    InputPlaceholder: {
-      "&::placeholder": {
+const useStyles = makeStyles(
+  () =>
+    createStyles({
+      TrackingTitle: {
+        fontWeight: "600 !important",
         color: "#06152B",
-        fontWeight: "400px",
+        fontSize: "28px",
       },
-    },
-    Select: {
-      padding: "9.5px 14px !important",
-      minHeight: "36px !important",
-      border: "2px solid #d9e1e7 !important",
-      background: "#F1F4F9 0% 0% no-repeat padding-box !important",
-      display: "flex !important",
-      justifyContent: "flex-start",
-      alignItems: "center",
-      borderRadius: "16px !important",
-      // border: "2px solid red !important",
-    },
-    iconOutlined: {
-      color: "#809FB8 !important",
-    },
-    NotificationsNoneIcon: {
-      border: "2px solid #D9E1E7",
-      width: "60px",
-      height: "60px",
-      minWidth: "60px",
-      minHeight: "60px",
-      borderRadius: "16px",
-    },
-    root: {
-      borderRadius: "16px !important",
-      color: "#809FB8",
-      // height: "32px",
-    },
-    Lft: {
-      "& > :nth-child(n+1)": {
-        margin: "8px",
+      TrackingTime: {
+        fontWeight: 400,
+        color: "#809FB8",
+        fontSize: "22px",
       },
-    },
-  })
+      Inputroot: {
+        borderRadius: "16px !important",
+        color: "#06152B !important",
+        height: "60px",
+        // border: "2px solid #d9e1e7 !important",
+      },
+      InputPlaceholder: {
+        "&::placeholder": {
+          color: "#06152B",
+          fontWeight: "400px",
+        },
+      },
+      Select: {
+        padding: "9.5px 14px !important",
+        minHeight: "36px !important",
+        border: "2px solid #d9e1e7 !important",
+        background: "#F1F4F9 0% 0% no-repeat padding-box !important",
+        display: "flex !important",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        borderRadius: "16px !important",
+        // border: "2px solid red !important",
+      },
+      iconOutlined: {
+        color: "#809FB8 !important",
+      },
+      NotificationsNoneIcon: {
+        border: "2px solid #D9E1E7",
+        width: "60px",
+        height: "60px",
+        minWidth: "60px",
+        minHeight: "60px",
+        borderRadius: "16px",
+      },
+      root: {
+        borderRadius: "16px !important",
+        color: "#809FB8",
+        // height: "32px",
+      },
+      Lft: {
+        "& > :nth-child(n+1)": {
+          margin: "8px",
+        },
+      },
+    }),
+  { withTheme: true }
 );
 
 export default function CultivationTracking() {
@@ -118,7 +120,10 @@ export default function CultivationTracking() {
               }}
               size="small"
               margin="dense"
-              style={{ borderRadius: "16px",border: "2px solid #d9e1e7 !important",}}
+              style={{
+                borderRadius: "16px",
+                border: "2px solid #d9e1e7 !important",
+              }}
               classes={{
                 root: classes.Inputroot,
                 input: classes.InputPlaceholder,
