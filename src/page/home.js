@@ -1,4 +1,6 @@
 import * as React from "react";
+import { makeStyles } from "@mui/styles";
+import { createStyles } from "@material-ui/core";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -7,8 +9,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Logo from "../assect/images/logo.png";
-import { makeStyles } from "@mui/styles";
-import { createStyles } from "@material-ui/core";
 import CultivationTracking from "../components/layout/cultivationTracking/index";
 import { ReactComponent as Dashboard } from "../assect/svg/dashboard.svg";
 import { ReactComponent as Analytics } from "../assect/svg/analytics.svg";
@@ -224,7 +224,7 @@ export default function Home() {
 
                   <ListItemText
                     classes={{ primary: classes.ListPrimary }}
-                    primary={text.title}
+                    primary="sd"
                   />
                 </ListItem>
               ))}
