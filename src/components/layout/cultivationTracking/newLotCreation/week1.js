@@ -62,8 +62,8 @@ export default function Week1() {
       name: "Sativa",
     },
   ];
-  const [selectedValue, setSelectedValue] = useState("");
-  const [ExpectedYied, setExpectedYied] = useState("");
+  // const [selectedValue, setSelectedValue] = useState("");
+  // const [ExpectedYied, setExpectedYied] = useState("");
   const [GrowingMethords, setGrowingMethords] = useState("");
   const [Date1, setDate1] = React.useState(new Date());
   const [Date2, setDate2] = React.useState(new Date());
@@ -88,10 +88,9 @@ export default function Week1() {
   const AmountHandleSelectChange = (selectedValue) => {
     setAmounts(selectedValue);
   };
-  const ExpectedYiedHandleSelectChange = (selectedValue) => {
-    setExpectedYied(selectedValue);
-  };
-  const handleDateChange = () => {};
+  // const ExpectedYiedHandleSelectChange = (selectedValue) => {
+  //   setExpectedYied(selectedValue);
+  // };
   const GrowingMethord = [
     {
       id: "Airoponics",
@@ -164,10 +163,9 @@ export default function Week1() {
     grower: "",
     seed: "",
     strain: "",
-    organicNu: "",
     eYeild: "",
   });
-  const { lotID, batchID, grower, seed, strain, organicNu, eYeild } =
+  const { lotID, batchID, grower, seed, strain, eYeild } =
     inputValue;
 
   const handleChange = (e) => {

@@ -78,10 +78,8 @@ const useStyles = makeStyles(() =>
       borderRadius: "16px !important",
     },
     TableRoot: {
-      background: "#ffffff) 0% 0% no-repeat padding-box !important",
       border: "1px solid #d9e1e7cc !important",
       background: "#FFFFFF 0% 0% no-repeat padding-box !important",
-      // border: "1px solid #D9E1E7CC !important",
       borderRadius: "16px !important",
       boxShadow: "none !important",
     },
@@ -311,7 +309,6 @@ export default function PreviousCultivationTable() {
                 <Button
                   variant="outlined"
                   sx={{
-                    color: "#D9E1E7",
                     border: "2px solid #D9E1E7",
                     borderRadius: "10px",
                     height: "40px !important",

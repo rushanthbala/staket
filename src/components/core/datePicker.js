@@ -8,7 +8,6 @@ import {
 } from "@material-ui/pickers";
 import { makeStyles } from "@mui/styles";
 import { createStyles } from "@material-ui/core";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 const useStyles = makeStyles((prop) =>
   createStyles({
     App: {
@@ -28,7 +27,7 @@ const useStyles = makeStyles((prop) =>
         position: "relative",
         // border: "1px solid #ced4da",
         fontSize: 16,
-        width: "auto",
+        // width: "auto",
         padding: "0px 0px 0px 9px",
       },
     },

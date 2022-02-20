@@ -7,7 +7,6 @@ import {
   DialogTitle,
 } from "@material-ui/core";
 import CloseIcon from "@mui/icons-material/Close";
-import Week1 from "./newLotCreation/week1";
 import Week2 from "./newLotCreation/week2";
 import Germination from "./newLotCreation/germination";
 import Vegitative from "./newLotCreation/vegitative";

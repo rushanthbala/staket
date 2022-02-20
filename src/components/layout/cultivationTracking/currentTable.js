@@ -47,8 +47,6 @@ const useStyles = makeStyles(() =>
       },
     },
     TableRoot: {
-      background: "#ffffff) 0% 0% no-repeat padding-box !important",
-      border: "1px solid #d9e1e7cc !important",
       background: "#FFFFFF 0% 0% no-repeat padding-box !important",
       border: "1px solid #D9E1E7CC !important",
       borderRadius: "16px !important",
@@ -168,7 +166,6 @@ export default function CurrentTable() {
               marginRight: "1rem",
               height: "52px !important",
               borderRadius: "16px",
-              backgroundColor: "#3A36DB",
             }}
           >
             Generate Report
@@ -222,7 +219,6 @@ export default function CurrentTable() {
                   <Button
                     variant="outlined"
                     sx={{
-                      color: "#D9E1E7",
                       border: "2px solid #D9E1E7",
                       borderRadius: "10px",
                       height: "40px !important",

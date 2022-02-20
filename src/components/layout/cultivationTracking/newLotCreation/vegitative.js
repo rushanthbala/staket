@@ -4,8 +4,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { FormControl } from "@mui/material";
-import { Box } from "@material-ui/core";
 import { makeStyles } from "@mui/styles";
 import { createStyles } from "@material-ui/core";
 import Week2 from "./week2";
