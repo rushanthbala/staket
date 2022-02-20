@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-// import InboxIcon from "@mui/icons-material/MoveToInbox";
 import Logo from "../assect/images/logo.png";
 import { makeStyles } from "@mui/styles";
 import { createStyles } from "@material-ui/core";
@@ -73,8 +72,8 @@ const useStyles = makeStyles(() =>
       fontSize: "16px !important",
       // fontSize: "24px !important",
       margin: "22px 0px !important",
-      letterSpacing: '2.4px !important',
-      fontWeight:"700 !important "
+      letterSpacing: "2.4px !important",
+      fontWeight: "700 !important ",
     },
     paper: {
       border: "none",
@@ -91,16 +90,14 @@ const useStyles = makeStyles(() =>
     CopyRight: {
       color: "#06152B",
       fontWeight: "500",
-      fontSize:'18px'
-
+      fontSize: "18px",
     },
     CopyRightPara: {
       color: "#809FB8",
-      fontSize:'14px'
+      fontSize: "14px",
     },
     ListPrimary: {
       fontSize: "17px !important",
-
     },
   })
 );
@@ -244,7 +241,12 @@ export default function Home() {
       </Drawer>
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+        sx={{
+          flexGrow: 1,
+          bgcolor: "background.default",
+          p: 3,
+          flexDirection: "column",
+        }}
         className={classes.main}
       >
         <CultivationTracking />
