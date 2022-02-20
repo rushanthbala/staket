@@ -99,7 +99,7 @@ const useStyles = makeStyles(() =>
     ListPrimary: {
       fontSize: "17px !important",
     },
-  })
+  }),{index: 1}
 );
 export default function Home() {
   const location = useLocation();
