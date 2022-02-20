@@ -185,7 +185,7 @@ export default function Home() {
               {navLists &&
                 navLists.map((text, index) => (
                   <List
-                    classes={{ root: classes.list }}
+                    // classes={{ root: classes.list }}
                     key={index}
                     className={true && "ActiveLink"}
                   >

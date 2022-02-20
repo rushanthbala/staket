@@ -9,7 +9,7 @@ export default function CultivationTracking() {
       <Headers />
       <TrackingPara />
       <CurrentTable />
-      {/* <PreviousCultivationTable /> */}
+      <PreviousCultivationTable />
     </>
   );
 }
