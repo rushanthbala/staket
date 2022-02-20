@@ -1,5 +1,4 @@
 import {
-  Box,
   InputAdornment,
   OutlinedInput,
   MenuItem,
@@ -80,12 +79,14 @@ export default function CultivationTracking() {
   };
   return (
     <div>
-      <Box
-        sx={{
+      <div
+        style={{
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
         }}
+        //   sx={{
+        // }}
       >
         <div>
           <div variant="h6" className={classes.TrackingTitle}>
@@ -97,8 +98,8 @@ export default function CultivationTracking() {
             {/* 12:15 PM at 23rd December 2021 */}
           </div>
         </div>
-        <Box
-          sx={{
+        <div
+          style={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
@@ -121,7 +122,7 @@ export default function CultivationTracking() {
               }}
               size="small"
               margin="dense"
-              style={{ borderRadius: "16px" , border:'none'}}
+              style={{ borderRadius: "16px", border: "none" }}
               classes={{
                 root: classes.Inputroot,
                 input: classes.InputPlaceholder,
@@ -154,8 +155,8 @@ export default function CultivationTracking() {
               <MenuItem value={2019}>2019</MenuItem>
             </Select>
           </FormControl>
-          <Box
-            sx={{
+          <div
+            style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -163,10 +164,10 @@ export default function CultivationTracking() {
             className={classes.NotificationsNoneIcon}
           >
             <NotificationsNoneIcon sx={{ color: "#809FB8" }} />
-          </Box>
+          </div>
           <Avatar sx={{ bgcolor: "#ccc", width: 60, height: 60 }}>OP</Avatar>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </div>
   );
 }
