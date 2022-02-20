@@ -181,34 +181,36 @@ export default function Home() {
             <div>
               <img className={classes.logo} src={Logo} alt="staket" />
             </div>
-            {navLists &&
-              navLists.map((text, index) => (
-                <List
-                  classes={{ root: classes.list }}
-                  key={index}
-                  className={true && "ActiveLink"}
-                >
-                  <ListItem
-                    key={text}
-                    classes={
-                      location.pathname !== text.href
-                        ? { root: classes.root, selected: classes.selected }
-                        : {
-                            root: classes.ActiveLink,
-                            selected: classes.selected,
-                          }
-                    }
+            <div>
+              {navLists &&
+                navLists.map((text, index) => (
+                  <List
+                    classes={{ root: classes.list }}
+                    key={index}
+                    className={true && "ActiveLink"}
                   >
-                    <ListItemIcon className={classes.ListItemIcon}>
-                      <text.icon style={{ color: "red" }} />
-                    </ListItemIcon>
-                    <ListItemText
-                      classes={{ primary: classes.ListPrimary }}
-                      primary={text.title}
-                    />
-                  </ListItem>
-                </List>
-              ))}
+                    <ListItem
+                      key={text}
+                      classes={
+                        location.pathname !== text.href
+                          ? { root: classes.root, selected: classes.selected }
+                          : {
+                              root: classes.ActiveLink,
+                              selected: classes.selected,
+                            }
+                      }
+                    >
+                      <ListItemIcon className={classes.ListItemIcon}>
+                        <text.icon style={{ color: "red" }} />
+                      </ListItemIcon>
+                      <ListItemText
+                        classes={{ primary: classes.ListPrimary }}
+                        primary={text.title}
+                      />
+                    </ListItem>
+                  </List>
+                ))}
+            </div>
             <Typography className={classes.Notification}>
               NOTIFICATION
             </Typography>
@@ -247,18 +249,18 @@ export default function Home() {
           </Box>
         </Box>
       </Drawer>
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-            bgcolor: "background.default",
-            p: 3,
-            flexDirection: "column !important",
-          }}
-          className={classes.main}
-        >
-          <CultivationTracking />
-        </Box>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          bgcolor: "background.default",
+          p: 3,
+          flexDirection: "column !important",
+        }}
+        className={classes.main}
+      >
+        <CultivationTracking />
+      </Box>
     </Box>
   );
 }
