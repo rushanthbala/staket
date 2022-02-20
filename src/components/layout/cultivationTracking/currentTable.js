@@ -170,7 +170,7 @@ export default function CurrentTable() {
           >
             Generate Report
           </Button>
-          <MoreHorizIcon />
+          <MoreHorizIcon style={{ color: "#D9E1E7" }} />
         </div>
       </Box>
       <Table
