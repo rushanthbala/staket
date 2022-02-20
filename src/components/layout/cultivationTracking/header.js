@@ -1,8 +1,4 @@
-import {
-  InputAdornment,
-  OutlinedInput,
-  MenuItem,
-} from "@material-ui/core";
+import { InputAdornment, OutlinedInput, MenuItem } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import { createStyles } from "@material-ui/core";
@@ -27,7 +23,7 @@ const useStyles = makeStyles(() =>
       borderRadius: "16px !important",
       color: "#06152B !important",
       height: "60px",
-      border: "2px solid #d9e1e7",
+      border: "2px solid #d9e1e7 !important",
     },
     InputPlaceholder: {
       "&::placeholder": {
