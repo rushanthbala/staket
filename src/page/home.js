@@ -1,6 +1,6 @@
 import * as React from "react";
 import { makeStyles } from "@mui/styles";
-import { createStyles } from "@material-ui/core";
+// import { createStyles } from "@material-ui/core";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -21,36 +21,24 @@ import { ReactComponent as Traffic } from "../assect/svg/traffic icon.svg";
 import { useLocation } from "react-router-dom";
 
 const drawerWidth = 250;
-const useStyles = makeStyles(() =>
-  createStyles({
-    logo: {
-      width: "200px",
-      padding: "10px",
-      marginTop: "20px",
-    },
-    ListItemIcon: {
-      minWidth: "38px !important",
-      margin: "0px !important",
-      color: "#809FB8 !important",
-    },
-    root: {
-      color: "#809FB8",
-      fill: "#809FB8",
-      borderRadious: "10px !important",
-      "&:hover": {
-        backgroundColor: "#3B9161",
-        opacity: "0.8",
-        cursor: "pointer",
-        borderRadius: "10px",
-        color: "#fff",
-        "& $svg": {
-          color: "#FFF !important",
-          fill: "#FFF !important",
-        },
-      },
-    },
-    ActiveLink: {
-      backgroundColor: "#3B9161 !important ",
+const useStyles = makeStyles({
+  logo: {
+    width: "200px",
+    padding: "10px",
+    marginTop: "20px",
+  },
+  ListItemIcon: {
+    minWidth: "38px !important",
+    margin: "0px !important",
+    color: "#809FB8 !important",
+  },
+  root: {
+    color: "#809FB8",
+    fill: "#809FB8",
+    borderRadious: "10px !important",
+    "&:hover": {
+      backgroundColor: "#3B9161",
+      opacity: "0.8",
       cursor: "pointer",
       borderRadius: "10px",
       color: "#fff",
@@ -59,47 +47,58 @@ const useStyles = makeStyles(() =>
         fill: "#FFF !important",
       },
     },
-    list: {
-      padding: "10px !important",
-      fontSize: "22px !important",
+  },
+  ActiveLink: {
+    backgroundColor: "#3B9161 !important ",
+    cursor: "pointer",
+    borderRadius: "10px",
+    color: "#fff",
+    "& $svg": {
+      color: "#FFF !important",
+      fill: "#FFF !important",
     },
-    selected: {
-      color: "red !important",
-    },
-    Notification: {
-      color: "#809FB8 !important",
-      paddingLeft: "26px !important",
-      fontSize: "16px !important",
-      // fontSize: "24px !important",
-      margin: "22px 0px !important",
-      letterSpacing: "2.4px !important",
-      fontWeight: "700 !important ",
-    },
-    paper: {
-      border: "none",
-      borderRight: "none !important",
-      backgroundColor: "#F4F4F4 !important",
-    },
-    main: {
-      height: "auto",
-      borderRadius: "40px",
-      marginTop: "10px",
-      marginRight: "10px",
-      padding: "10px 10px 0px 20px !important",
-    },
-    CopyRight: {
-      color: "#06152B",
-      fontWeight: "500",
-      fontSize: "18px",
-    },
-    CopyRightPara: {
-      color: "#809FB8",
-      fontSize: "14px",
-    },
-    ListPrimary: {
-      fontSize: "17px !important",
-    },
-  }),{index: 1}
+  },
+  list: {
+    padding: "10px !important",
+    fontSize: "22px !important",
+  },
+  selected: {
+    color: "red !important",
+  },
+  Notification: {
+    color: "#809FB8 !important",
+    paddingLeft: "26px !important",
+    fontSize: "16px !important",
+    // fontSize: "24px !important",
+    margin: "22px 0px !important",
+    letterSpacing: "2.4px !important",
+    fontWeight: "700 !important ",
+  },
+  paper: {
+    border: "none",
+    borderRight: "none !important",
+    backgroundColor: "#F4F4F4 !important",
+  },
+  main: {
+    height: "auto",
+    borderRadius: "40px",
+    marginTop: "10px",
+    marginRight: "10px",
+    padding: "10px 10px 0px 20px !important",
+  },
+  CopyRight: {
+    color: "#06152B",
+    fontWeight: "500",
+    fontSize: "18px",
+  },
+  CopyRightPara: {
+    color: "#809FB8",
+    fontSize: "14px",
+  },
+  ListPrimary: {
+    fontSize: "17px !important",
+  },
+},{index: 1}
 );
 export default function Home() {
   const location = useLocation();
