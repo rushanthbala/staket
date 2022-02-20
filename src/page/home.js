@@ -181,7 +181,7 @@ export default function Home() {
             <div>
               <img className={classes.logo} src={Logo} alt="staket" />
             </div>
-            {navLists.map((text, index) => (
+            {navLists && navLists.map((text, index) => (
               <List
                 classes={{ root: classes.list }}
                 key={index}
@@ -209,7 +209,7 @@ export default function Home() {
               NOTIFICATION
             </Typography>
             <div classes={{ root: classes.list }}>
-              {navLists2.map((text, index) => (
+              {navLists2 &&  navLists2.map((text, index) => (
                 <ListItem
                   key={text}
                   classes={
