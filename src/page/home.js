@@ -245,7 +245,7 @@ export default function Home() {
           flexGrow: 1,
           bgcolor: "background.default",
           p: 3,
-          flexDirection: "column",
+          flexDirection: "column !important",
         }}
         className={classes.main}
       >
