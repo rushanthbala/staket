@@ -23,7 +23,7 @@ const useStyles = makeStyles(() =>
       borderRadius: "16px !important",
       color: "#06152B !important",
       height: "60px",
-      border: "2px solid #d9e1e7 !important",
+      // border: "2px solid #d9e1e7 !important",
     },
     InputPlaceholder: {
       "&::placeholder": {
@@ -118,7 +118,7 @@ export default function CultivationTracking() {
               }}
               size="small"
               margin="dense"
-              style={{ borderRadius: "16px", border: "none" }}
+              style={{ borderRadius: "16px",border: "2px solid #d9e1e7 !important",}}
               classes={{
                 root: classes.Inputroot,
                 input: classes.InputPlaceholder,
