@@ -34,20 +34,13 @@ const useStyles = makeStyles(
       color: "#809FB8 !important",
     },
     root: {
-      color: "#809FB8",
-      fill: "#809FB8",
-      borderRadious: "10px !important",
       backgroundColor: "#3B9161 !important ",
-      "&:hover": {
-        backgroundColor: "#3B9161",
-        opacity: "0.8",
-        cursor: "pointer",
-        borderRadius: "10px",
-        color: "#fff",
-        "& $svg": {
-          color: "#FFF !important",
-          fill: "#FFF !important",
-        },
+      cursor: "pointer",
+      borderRadius: "10px",
+      color: "#fff",
+      "& $svg": {
+        color: "#FFF !important",
+        fill: "#FFF !important",
       },
     },
     ActiveLink: {
