@@ -34,13 +34,19 @@ const useStyles = makeStyles(
       color: "#809FB8 !important",
     },
     Root: {
-      backgroundColor: "#3B9161 !important ",
-      cursor: "pointer",
-      borderRadius: "10px",
-      color: "#fff",
-      "& $svg": {
-        color: "#FFF !important",
-        fill: "#FFF !important",
+      color: "#809FB8",
+      fill: "#809FB8",
+      borderRadious: "10px !important",
+      "&:hover": {
+        backgroundColor: "#3B9161",
+        opacity: "0.8",
+        cursor: "pointer",
+        borderRadius: "10px",
+        color: "#fff",
+        "& $svg": {
+          color: "#FFF !important",
+          fill: "#FFF !important",
+        },
       },
     },
     ActiveLink: {
@@ -178,21 +184,6 @@ export default function Home() {
               <img className={classes.logo} src={Logo} alt="staket" />
               {/* </div> */}
               <div>
-                {navLists &&
-                  navLists.map((text, index) => (
-                    <List key={index} className={true && "ActiveLink"}>
-                      <ListItem key={text} classes={{root:classes.Root}}>
-                        <ListItemIcon className={classes.ListItemIcon}>
-                          <text.icon style={{ color: "red" }} />
-                        </ListItemIcon>
-                        <ListItemText
-                          classes={{ primary: classes.ListPrimary }}
-                          primary="texitle"
-                        />
-                      </ListItem>
-                    </List>
-                  ))}
-
                 {navLists &&
                   navLists.map((text, index) => (
                     <List
