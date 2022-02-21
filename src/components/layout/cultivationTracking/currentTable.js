@@ -141,12 +141,12 @@ export default function CurrentTable() {
       .get(`https://staketapi.moodfor.codes/lots`)
       .then((res) => {
         const data = res.data;
-        console.log(res.data, "/=");
+        // console.log(res.data, "/=");
         setRows(data);
       })
       .catch((err) => console.log(err, "/=error"));
   }, []);
-  console.log(new Date(), "///");
+  // console.log(new Date(), "///");
   return (
     <TableContainer
       component={Paper}
