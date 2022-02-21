@@ -34,6 +34,7 @@ const useStyles = makeStyles(
       color: "#809FB8 !important",
     },
     Root: {
+      padding: "4px",
       color: "#809FB8",
       fill: "#809FB8",
       borderRadious: "10px !important",
@@ -60,7 +61,7 @@ const useStyles = makeStyles(
       },
     },
     list: {
-      padding: "10px !important",
+      padding: "6px 4px !important",
       fontSize: "22px !important",
     },
     selected: {
@@ -187,7 +188,7 @@ export default function Home() {
                 {navLists &&
                   navLists.map((text, index) => (
                     <List
-                      // classes={{ root: classes.list }}
+                      classes={{ root: classes.list }}
                       key={index}
                       className={true && "ActiveLink"}
                     >
@@ -220,7 +221,7 @@ export default function Home() {
                 {navLists2 &&
                   navLists2.map((text, i) => (
                     <List
-                      // classes={{ root: classes.list }}
+                      classes={{ root: classes.list }}
                       key={i}
                       className={true && "ActiveLink"}
                     >
