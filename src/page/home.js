@@ -33,7 +33,7 @@ const useStyles = makeStyles(
       margin: "0px !important",
       color: "#809FB8 !important",
     },
-    root: {
+    Root: {
       backgroundColor: "#3B9161 !important ",
       cursor: "pointer",
       borderRadius: "10px",
@@ -181,7 +181,7 @@ export default function Home() {
                 {navLists &&
                   navLists.map((text, index) => (
                     <List key={index} className={true && "ActiveLink"}>
-                      <ListItem key={text} className={classes.root}>
+                      <ListItem key={text} classes={{root:classes.Root}}>
                         <ListItemIcon className={classes.ListItemIcon}>
                           <text.icon style={{ color: "red" }} />
                         </ListItemIcon>
@@ -204,7 +204,7 @@ export default function Home() {
                         key={text}
                         classes={
                           location.pathname !== text.href
-                            ? { root: classes.root, selected: classes.selected }
+                            ? { root: classes.Root, selected: classes.selected }
                             : {
                                 root: classes.ActiveLink,
                                 selected: classes.selected,
