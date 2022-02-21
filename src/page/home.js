@@ -61,7 +61,7 @@ const useStyles = makeStyles(
       },
     },
     list: {
-      padding: "6px 4px !important",
+      padding: "2px 4px !important",
       fontSize: "22px !important",
     },
     selected: {
