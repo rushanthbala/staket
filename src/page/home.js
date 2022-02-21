@@ -73,7 +73,7 @@ const useStyles = makeStyles(
       // fontSize: "24px !important",
       margin: "22px 0px !important",
       letterSpacing: "2.4px !important",
-      fontWeight: "700 !important ",
+      fontWeight: "600 !important ",
     },
     paper: {
       border: "none",
