@@ -5,9 +5,9 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import { ListItem } from "@mui/material";
+import { ListItemIcon } from "@mui/material";
+import { ListItemText } from "@mui/material";
 import Logo from "../assect/images/logo.png";
 import CultivationTracking from "../components/layout/cultivationTracking/index";
 import { ReactComponent as Dashboard } from "../assect/svg/dashboard.svg";
@@ -179,9 +179,9 @@ export default function Home() {
           }}
         >
           <div>
-            <div>
-              <img className={classes.logo} src={Logo} alt="staket" />
-            </div>
+            {/* <div> */}
+            <img className={classes.logo} src={Logo} alt="staket" />
+            {/* </div> */}
             <div>
               {navLists &&
                 navLists.map((text, index) => (
