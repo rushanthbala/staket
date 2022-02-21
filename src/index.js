@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./page/App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../src/theme/theme";
 // import { StylesProvider } from "@mui/styles";
 
@@ -11,11 +11,11 @@ import theme from "../src/theme/theme";
 ReactDOM.render(
   <React.StrictMode>
     {/* <StylesProvider  > */}
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
     {/* </StylesProvider> */}
   </React.StrictMode>,
   document.getElementById("root")
