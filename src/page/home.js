@@ -1,5 +1,5 @@
 import * as React from "react";
-import { makeStyles } from "@mui/styles";
+import { makeStyles, ThemeProvider } from "@mui/styles";
 // import { createStyles } from "@material-ui/core";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -151,47 +151,76 @@ export default function Home() {
     },
   ];
   return (
-    <Box
-      sx={{ display: "flex" }}
-      style={{ backgroundColor: "#F4F4F4 !important" }}
-    >
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-          },
-        }}
-        variant="permanent"
-        style={{ border: "none" }}
-        classes={{
-          paper: classes.paper,
-        }}
+    <ThemeProvider>
+      <Box
+        sx={{ display: "flex" }}
+        style={{ backgroundColor: "#F4F4F4 !important" }}
       >
-        <Box
+        <Drawer
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItem: "space-between",
+            width: drawerWidth,
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+            },
+          }}
+          variant="permanent"
+          style={{ border: "none" }}
+          classes={{
+            paper: classes.paper,
           }}
         >
-          <div>
-            {/* <div> */}
-            <img className={classes.logo} src={Logo} alt="staket" />
-            {/* </div> */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItem: "space-between",
+            }}
+          >
             <div>
-              {navLists &&
-                navLists.map((text, index) => (
-                  <List
-                    // classes={{ root: classes.list }}
-                    key={index}
-                    className={true && "ActiveLink"}
-                  >
+              {/* <div> */}
+              <img className={classes.logo} src={Logo} alt="staket" />
+              {/* </div> */}
+              <div>
+                {navLists &&
+                  navLists.map((text, index) => (
+                    <List
+                      // classes={{ root: classes.list }}
+                      key={index}
+                      className={true && "ActiveLink"}
+                    >
+                      <ListItem
+                        key={text}
+                        classes={
+                          location.pathname !== text.href
+                            ? { root: classes.root, selected: classes.selected }
+                            : {
+                                root: classes.ActiveLink,
+                                selected: classes.selected,
+                              }
+                        }
+                      >
+                        <ListItemIcon className={classes.ListItemIcon}>
+                          <text.icon style={{ color: "red" }} />
+                        </ListItemIcon>
+                        <ListItemText
+                          classes={{ primary: classes.ListPrimary }}
+                          primary={text.title}
+                        />
+                      </ListItem>
+                    </List>
+                  ))}
+              </div>
+              <Typography className={classes.Notification}>
+                NOTIFICATION
+              </Typography>
+              <div classes={{ root: classes.list }}>
+                {navLists2 &&
+                  navLists2.map((text, i) => (
                     <ListItem
-                      key={text}
+                      key={text.title}
                       classes={
                         location.pathname !== text.href
                           ? { root: classes.root, selected: classes.selected }
@@ -202,66 +231,39 @@ export default function Home() {
                       }
                     >
                       <ListItemIcon className={classes.ListItemIcon}>
-                        <text.icon style={{ color: "red" }} />
+                        <text.icon />
                       </ListItemIcon>
+
                       <ListItemText
                         classes={{ primary: classes.ListPrimary }}
                         primary={text.title}
                       />
                     </ListItem>
-                  </List>
-                ))}
+                  ))}
+              </div>
             </div>
-            <Typography className={classes.Notification}>
-              NOTIFICATION
-            </Typography>
-            <div classes={{ root: classes.list }}>
-              {navLists2 &&
-                navLists2.map((text, i) => (
-                  <ListItem
-                    key={text.title}
-                    classes={
-                      location.pathname !== text.href
-                        ? { root: classes.root, selected: classes.selected }
-                        : {
-                            root: classes.ActiveLink,
-                            selected: classes.selected,
-                          }
-                    }
-                  >
-                    <ListItemIcon className={classes.ListItemIcon}>
-                      <text.icon />
-                    </ListItemIcon>
-
-                    <ListItemText
-                      classes={{ primary: classes.ListPrimary }}
-                      primary={text.title}
-                    />
-                  </ListItem>
-                ))}
-            </div>
+            {/* <Toolbar /> */}
+            <Box sx={{ m: 1, padding: "10px" }}>
+              <div className={classes.CopyRight}> © 2021 STAKET</div>
+              <div className={classes.CopyRightPara}>
+                Driving data transparency for Industries in need
+              </div>
+            </Box>
           </div>
-          {/* <Toolbar /> */}
-          <Box sx={{ m: 1, padding: "10px" }}>
-            <div className={classes.CopyRight}> © 2021 STAKET</div>
-            <div className={classes.CopyRightPara}>
-              Driving data transparency for Industries in need
-            </div>
-          </Box>
+        </Drawer>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            bgcolor: "background.default",
+            p: 3,
+            flexDirection: "column !important",
+          }}
+          className={classes.main}
+        >
+          <CultivationTracking />
         </Box>
-      </Drawer>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          bgcolor: "background.default",
-          p: 3,
-          flexDirection: "column !important",
-        }}
-        className={classes.main}
-      >
-        <CultivationTracking />
       </Box>
-    </Box>
+    </ThemeProvider>
   );
 }
