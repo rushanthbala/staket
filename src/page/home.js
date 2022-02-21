@@ -219,26 +219,31 @@ export default function Home() {
               <div classes={{ root: classes.list }}>
                 {navLists2 &&
                   navLists2.map((text, i) => (
-                    <ListItem
-                      key={text.title}
-                      classes={
-                        location.pathname !== text.href
-                          ? { root: classes.root, selected: classes.selected }
-                          : {
-                              root: classes.ActiveLink,
-                              selected: classes.selected,
-                            }
-                      }
+                    <List
+                      // classes={{ root: classes.list }}
+                      key={i}
+                      className={true && "ActiveLink"}
                     >
-                      <ListItemIcon className={classes.ListItemIcon}>
-                        <text.icon />
-                      </ListItemIcon>
-
-                      <ListItemText
-                        classes={{ primary: classes.ListPrimary }}
-                        primary={text.title}
-                      />
-                    </ListItem>
+                      <ListItem
+                        key={text}
+                        classes={
+                          location.pathname !== text.href
+                            ? { root: classes.Root, selected: classes.selected }
+                            : {
+                                root: classes.ActiveLink,
+                                selected: classes.selected,
+                              }
+                        }
+                      >
+                        <ListItemIcon className={classes.ListItemIcon}>
+                          <text.icon style={{ color: "red" }} />
+                        </ListItemIcon>
+                        <ListItemText
+                          classes={{ primary: classes.ListPrimary }}
+                          primary={text.title}
+                        />
+                      </ListItem>
+                    </List>
                   ))}
               </div>
             </div>
