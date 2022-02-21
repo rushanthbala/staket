@@ -187,7 +187,7 @@ export default function Home() {
                 {navLists &&
                   navLists.map((text, index) => (
                     <List key={index} className={true && "ActiveLink"}>
-                      <ListItem key={text} classes={{ root: classes.root }}>
+                      <ListItem key={text} className={classes.root}>
                         <ListItemIcon className={classes.ListItemIcon}>
                           <text.icon style={{ color: "red" }} />
                         </ListItemIcon>
@@ -198,23 +198,7 @@ export default function Home() {
                       </ListItem>
                     </List>
                   ))}
-                {navLists &&
-                  navLists.map((text, index) => (
-                    <List key={index} className={true && "ActiveLink"}>
-                      <ListItem
-                        key={text}
-                        classes={{ root: classes.ActiveLink }}
-                      >
-                        <ListItemIcon className={classes.ListItemIcon}>
-                          <text.icon style={{ color: "red" }} />
-                        </ListItemIcon>
-                        <ListItemText
-                          classes={{ primary: classes.ListPrimary }}
-                          primary="texitle"
-                        />
-                      </ListItem>
-                    </List>
-                  ))}
+
                 {navLists &&
                   navLists.map((text, index) => (
                     <List
