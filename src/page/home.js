@@ -194,9 +194,10 @@ export default function Home() {
                       key={text}
                       classes={
                         location.pathname !== text.href
-                          ? { root: classes.root }
+                          ? { root: classes.root, selected: classes.selected }
                           : {
                               root: classes.ActiveLink,
+                              selected: classes.selected,
                             }
                       }
                     >
