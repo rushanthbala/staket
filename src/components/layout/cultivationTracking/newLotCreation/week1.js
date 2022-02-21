@@ -198,7 +198,6 @@ export default function Week1() {
     const Details = JSON.stringify({
       lotId: lotID,
       strainName: strain,
-      exitDate: date1,
       amount: amount,
       grower: grower,
       batchId: batchID,
@@ -208,6 +207,7 @@ export default function Week1() {
       growingMethod: GrowingMethords,
       organicNutrition: organicNutrition,
       expectedYield: Amounts,
+      exitDate: date1,
       vegDate: date2,
       flowerDate: date3,
       harvestDate: date4,
